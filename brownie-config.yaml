@@ -1,0 +1,9 @@
+dependencies:
+    - OpenZeppelin/openzeppelin-contracts@4.3.2
+    - GNSPS/solidity-bytes-utils@0.8.0
+compiler:
+    solc:
+        remappings:
+            - "@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.3.2"
+            - "@solidity-bytes-utils=GNSPS/solidity-bytes-utils@0.8.0"
+
