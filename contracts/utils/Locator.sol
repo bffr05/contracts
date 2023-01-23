@@ -30,7 +30,7 @@ contract Locator is Ownable,ILocator {
     }
     function get(bytes32 hash_) public view returns (address out_) {
         if (_location[kLocator]!=address(0))
-            out_=Locator(_location[kLocator]).location(hash_);
+            out_=Locator(_location[kLocator]).get(hash_);
         if (out_==address(0))
             out_ = _location[hash_];
     }
