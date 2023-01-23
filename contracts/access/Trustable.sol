@@ -68,7 +68,7 @@ contract Trustable is Ownable,Location, Referral, ITrustable, IRTrustable {
             return super.referral();
         if (locator().code.length == 0)
             return address(0);
-        out_ = location(kAccess);
+        out_ = get(kAccess);
         if (out_==address(this))
             out_=address(0);
     }
