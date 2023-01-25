@@ -4,6 +4,7 @@
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/utils/introspection/IERC165.sol";
+import "@openzeppelin/contracts/utils/Context.sol";
 
 interface IOwnable {
     event Owned(address indexed from,address indexed to);
@@ -28,7 +29,7 @@ interface IROwnable {
  * `onlyOwner`, which can be applied to your functions to restrict their use to
  * the owner.
  */
-contract Ownable is IERC165, IOwnable,IROwnable {
+contract Ownable is Context,IERC165, IOwnable,IROwnable {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //          supportsInterface
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
