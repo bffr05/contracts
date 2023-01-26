@@ -11,9 +11,9 @@ interface ITransferable is IERC165 {
     function transferable(uint256 tokenId_) external view returns (bool);
 }
 interface IContains {
-    function content(uint256 tokenId_) external view returns (address[] memory token_,uint256[] memory v_);
-    function content(uint256 tokenId_,address[] calldata token_) external view returns (uint256[][] memory);
-    function content(uint256 tokenId_,address token_) external view returns (uint256[] memory);
+    function content(uint256 tokenId_) external view returns (address[] memory token_,uint256[] memory id_,uint256[] memory v_);
+    function content(uint256 tokenId_,address[] calldata token_) external view returns (uint256[][] memory id_,uint256[][] memory v_);
+    function content(uint256 tokenId_,address token_) external view returns (uint256[] memory id_,uint256[] memory v_);
 }
 
 interface IGateable is IERC165 {

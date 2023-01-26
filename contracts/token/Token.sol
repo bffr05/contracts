@@ -9,11 +9,12 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol";
+import "@openzeppelin/contracts/token/ERC1155/IERC1155.sol";
 import "../../interfaces/IAble.sol";
 import "../../interfaces/IContractWithId.sol";
 
 library Token {
-    address constant COIN = address(0);
+    address constant COIN = address(0); //0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE
 
     uint40 constant TypeMask = 0x00000000ff; //
     uint40 constant TypeCoin = 0x0000000001; // is Coin
@@ -62,7 +63,7 @@ library Token {
         returns (uint40 features_)
     {
         while (true) {
-            if (token_ == address(0)) {
+            if (token_ == COIN) {
                 features_ = TypeCoin | FT;
                 break;
             }
@@ -81,7 +82,8 @@ library Token {
                     features_ |= TypeERC20 | FT;
                 else if (IERC165(token_).supportsInterface(type(IERC721).interfaceId)) 
                     features_ |= TypeERC721 | NFT | ContractWithId;
-
+                else if (IERC165(token_).supportsInterface(type(IERC1155).interfaceId)) 
+                    features_ |= TypeERC1155;                   
                 if (IERC165(token_).supportsInterface(type(IContractWithId).interfaceId)) 
                     features_ |= ContractWithId;
                 if (IERC165(token_).supportsInterface(type(IContains).interfaceId)) 
@@ -178,7 +180,7 @@ library Token {
             features_ = features(token_, true);
         return features_ & (TypeERC20|TypeERC777|FT) != 0;
     }
-
+/*
     function transferFrom(
         uint40 features_,
         address from_,
@@ -219,12 +221,16 @@ library Token {
 
         uint40 t = typeOf(features_);
         if (t == TypeCoin) 
+        {
+            //(bool success, ) = to_.call{value: v_}(new bytes(0));
+            //require(success,"failed transferFrom COIN");
             payable(to_).transfer(v_);
+        }
         else if (t == TypeERC20 || t == TypeERC777)
             IERC20(token_).transferFrom(address(this),to_, v_);
         else if (t == TypeERC721) 
             IERC721(token_).safeTransferFrom(address(this), to_, v_, data_); 
         else require(false, "Token: Unknown type");
     }
-
+*/
 }
