@@ -8,7 +8,9 @@ import "@openzeppelin/contracts/utils/Context.sol";
 
 abstract contract ForwarderContext is Context {
 
-    function isTrustedForwarder(address forwarder) public view virtual returns (bool);
+    function isTrustedForwarder(address forwarder) public view virtual returns (bool) {
+        return false;
+    }
 
     function _msgSender() internal view virtual override returns (address sender) {
         if (isTrustedForwarder(msg.sender)) {
