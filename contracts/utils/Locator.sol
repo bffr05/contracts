@@ -22,6 +22,7 @@ interface ILocator {
     function hash(string memory arg_) external  pure returns (bytes32);
 }
 contract Locator is Ownable,ILocator {
+    bool immutable writeonce = false;
     mapping(bytes32 => address) internal _location;
 
     function location(bytes32 hash_) public view returns (address out_) {
@@ -39,6 +40,7 @@ contract Locator is Ownable,ILocator {
     }
 
     function set(bytes32 hash_, address addr_) public onlyOwner() {
+        require(!(_location[hash_]!=address(0) && writeonce), "Location write once");
         _location[hash_] = addr_;
     }
     /*function set(string memory arg_, address addr_) public onlyOwner() {

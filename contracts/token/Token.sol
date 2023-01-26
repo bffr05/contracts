@@ -27,7 +27,8 @@ library Token {
 
     uint40 constant FT =                    0x0000000100; // is FT
     uint40 constant NFT =                   0x0000000200; // is NFT
-    uint40 constant TID =                   0x0000000400; // has TokenId
+    uint40 constant MT =                    0x0000000400; // is Multi Token
+    uint40 constant TID =                   0x0000000800; // has TokenId
     uint40 constant ERC165 =                0x0000001000; // Supports IERC165
     uint40 constant Machined =              0x0000002000; // Supports IMachined
     uint40 constant ContractWithId =        0x0000004000; // Contract IContractWithId
@@ -84,7 +85,7 @@ library Token {
                 else if (IERC165(token_).supportsInterface(type(IERC721).interfaceId)) 
                     features_ |= TypeERC721 | NFT | ContractWithId | TID;
                 else if (IERC165(token_).supportsInterface(type(IERC1155).interfaceId)) 
-                    features_ |= TypeERC1155 | TID;                   
+                    features_ |= TypeERC1155 | MT | TID;                   
                 if (IERC165(token_).supportsInterface(type(IContractWithId).interfaceId)) 
                     features_ |= ContractWithId;
                 if (IERC165(token_).supportsInterface(type(IContains).interfaceId)) 
@@ -175,7 +176,11 @@ library Token {
             features_ = features(token_, true);
         return features_ & (TypeERC721|TypeERC1155|TID) != 0;
     }
-
+    function mt(address token_, uint40 features_) internal view returns (bool) {
+        if (features_ == 0)
+            features_ = features(token_, true);
+        return features_ & (TypeERC1155|MT) != 0;
+    }
     function nft(address token_, uint40 features_) internal view returns (bool) {
         if (features_ == 0)
             features_ = features(token_, true);
