@@ -58,7 +58,7 @@ abstract contract Blacklist is IERC165, Trustable, IBlacklist, IRBlacklist {
     //          modifiers
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     modifier notBlacklisted() {
-        require(!isBlacklisted(msg.sender), "Blacklist: caller is blacklisted");
+        require(!isBlacklisted(_msgSender()), "Blacklist: caller is blacklisted");
         _;
     }
 
@@ -70,7 +70,7 @@ abstract contract Blacklist is IERC165, Trustable, IBlacklist, IRBlacklist {
         //onlyOwner || onlyTrusted
         require(!isReferred(), "referred");
         require(
-            isTrusted(msg.sender) || isOwner(msg.sender),
+            isTrusted(_msgSender()) || isOwner(_msgSender()),
             "Blacklist: caller is not owner or trusted"
         );
         if (approved_) _bads.insert(bad_);

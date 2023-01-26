@@ -87,7 +87,7 @@ contract Operatorable is IERC165, Trustable, IOperatorable, IROperatorable {
     //constructor(address referral_) Trustable(referral_) {}
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //          msg.sender public/external functions
+    //          _msgSender() public/external functions
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     function setApprovalForAll(address operator_, bool approved_)
         public
@@ -124,14 +124,14 @@ contract Operatorable is IERC165, Trustable, IOperatorable, IROperatorable {
 
     modifier onlyOperator(address user_) {
         require(
-            isOperator(user_, msg.sender),
+            isOperator(user_, _msgSender()),
             "Operatorable: caller is not operator_"
         );
         _;
     }
 
     function setOperator(address operator_, bool approved_) public {
-        _setOperator(msg.sender, operator_, approved_);
+        _setOperator(_msgSender(), operator_, approved_);
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -77,7 +77,7 @@ contract Trustable is Ownable,Location, Referral, ITrustable, IRTrustable {
     //          modifiers
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     modifier onlyTrusted() {
-        require(isTrusted(msg.sender), "caller is not trusted");
+        require(isTrusted(_msgSender()), "caller is not trusted");
         _;
     }
 
@@ -89,7 +89,7 @@ contract Trustable is Ownable,Location, Referral, ITrustable, IRTrustable {
             if (Trustable(referral()).isTrusted(address(this)))
                 return Trustable(referral()).setHash(hash_, approved_);
 
-        require(isTrusted(msg.sender),"caller is not owner or trusted");
+        require(isTrusted(_msgSender()),"caller is not owner or trusted");
 
         if (hash_.isKeccakNull() || hash_ == 0) return;
         if (approved_) _hashs.insert(hash_);
@@ -106,7 +106,7 @@ contract Trustable is Ownable,Location, Referral, ITrustable, IRTrustable {
             if (Trustable(referral()).isTrusted(address(this)))
                 return Trustable(referral()).setContract(contract_, approved_);
 
-        require(isTrusted(msg.sender),"caller is not owner or trusted");
+        require(isTrusted(_msgSender()),"caller is not owner or trusted");
 
         if (contract_ == address(0)) return;
         if (approved_) _operators[address(this)].insert(contract_);
