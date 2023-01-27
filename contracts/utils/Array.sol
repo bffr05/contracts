@@ -24,6 +24,7 @@ library Array  {
              sum_ += t_[i];
     }
 
+
     function insert(
         uint32[] storage t_,
         uint32 index_
@@ -55,6 +56,11 @@ library Array  {
                 return true;
         return false;
     }
+    function munique(uint32 i_) pure internal returns (uint32[] memory out_) {
+        out_ = new uint32[](1);
+        out_[0]=i_; 
+    }
+
     function remove(uint32[] storage t_, uint32 index_)
         internal
     returns (bool)
@@ -121,6 +127,11 @@ library Array  {
                 return true;
         return false;
     }
+    function munique(uint64 i_) pure internal returns (uint64[] memory out_) {
+        out_ = new uint64[](1);
+        out_[0]=i_; 
+    }
+
     function remove(uint64[] storage t_, uint64 index_)
         internal
     returns (bool)
@@ -187,6 +198,10 @@ library Array  {
                 return true;
         return false;
     }
+    function munique(uint256 i_) pure internal returns (uint256[] memory out_) {
+        out_ = new uint256[](1);
+        out_[0]=i_; 
+    }
 
     function remove(uint256[] storage t_, uint256 index_)
         internal
@@ -227,7 +242,7 @@ library Array  {
         t_.push(index_);
         return true;
     }
-    function c_exist(address[] calldata t_, address index_)
+    function cexist(address[] calldata t_, address index_)
         pure internal
     returns (bool)
     {
@@ -237,7 +252,7 @@ library Array  {
                 return true;
         return false;
     }
-    function s_exist(address[] storage t_, address index_)
+    function exist(address[] storage t_, address index_)
         view internal
     returns (bool)
     {
@@ -247,7 +262,7 @@ library Array  {
                 return true;
         return false;
     }
-    function m_exist(address[] memory t_, address index_)
+    function mexist(address[] memory t_, address index_)
         pure internal
     returns (bool)
     {
@@ -257,6 +272,11 @@ library Array  {
                 return true;
         return false;
     }
+    function munique(address i_) pure internal returns (address[] memory out_) {
+        out_ = new address[](1);
+        out_[0]=i_; 
+    }
+
     function remove(address[] storage t_, address index_)
         internal
     returns (bool)
@@ -283,7 +303,7 @@ library Array  {
         t_.push(index_);
         return true;
     }
-    function s_exist(bytes4[] storage t_, bytes4 index_)
+    function exist(bytes4[] storage t_, bytes4 index_)
         view internal
     returns (bool)
     {
@@ -293,7 +313,7 @@ library Array  {
                 return true;
         return false;
     }
-    function m_exist(bytes4[] memory t_, bytes4 index_)
+    function mexist(bytes4[] memory t_, bytes4 index_)
         pure internal
     returns (bool)
     {
@@ -303,6 +323,11 @@ library Array  {
                 return true;
         return false;
     }
+    function munique(bytes4 i_) pure internal returns (bytes4[] memory out_) {
+        out_ = new bytes4[](1);
+        out_[0]=i_; 
+    }
+
     function remove(bytes4[] storage t_, bytes4 index_)
         internal
     returns (bool)
@@ -365,7 +390,7 @@ library Array  {
         return false;      
     }
 
-    function c_exist(bytes32[] calldata t_, bytes32 index_)
+    function cexist(bytes32[] calldata t_, bytes32 index_)
         pure internal
     returns (bool)
     {
@@ -375,7 +400,7 @@ library Array  {
                 return true;
         return false;
     }
-    function s_exist(bytes32[] storage t_, bytes32 index_)
+    function exist(bytes32[] storage t_, bytes32 index_)
         view internal
     returns (bool)
     {
@@ -385,7 +410,7 @@ library Array  {
                 return true;
         return false;
     }
-    function m_exist(bytes32[] memory t_, bytes32 index_)
+    function mexist(bytes32[] memory t_, bytes32 index_)
         pure internal
     returns (bool)
     {
@@ -394,6 +419,10 @@ library Array  {
              if (t_[i]==index_)
                 return true;
         return false;
+    }
+    function munique(bytes32 i_) pure internal returns (bytes32[] memory out_) {
+        out_ = new bytes32[](1);
+        out_[0]=i_; 
     }
     function addtail(bytes32[] memory in_, bytes32  s_)
         internal
@@ -445,16 +474,6 @@ library Array  {
         }
     }
 
-    function mexist(bytes32[] memory t_, bytes32 index_)
-        pure internal
-    returns (bool)
-    {
-        uint len = t_.length;
-        for (uint i;i<len;i++)
-             if (t_[i]==index_)
-                return true;
-        return false;
-    }
     function pack(bytes32[] memory t_)
         pure internal
     returns (bytes memory out_)

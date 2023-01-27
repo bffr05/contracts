@@ -167,7 +167,7 @@ contract Operatorable is IERC165, Trustable, IOperatorable, IROperatorable {
         if (isReferred())
             if (Operatorable(referral()).isTrusted(address(this)))
                 return Operatorable(referral()).isOperator(user_, operator_);
-        return _operators[user_].s_exist(operator_) || user_ == operator_;
+        return _operators[user_].exist(operator_) || user_ == operator_;
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

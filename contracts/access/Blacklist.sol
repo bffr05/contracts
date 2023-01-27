@@ -86,7 +86,7 @@ abstract contract Blacklist is IERC165, Trustable, IBlacklist, IRBlacklist {
 
     function isBlacklisted(address bad_) public view returns (bool) {
         if (isReferred()) return Blacklist(referral()).isBlacklisted(bad_);
-        return _bads.s_exist(bad_);
+        return _bads.exist(bad_);
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

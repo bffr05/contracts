@@ -122,8 +122,8 @@ contract Trustable is Ownable,Location, Referral, ITrustable, IRTrustable {
             if (Trustable(referral()).isTrusted(address(this)))        
                 return Trustable(referral()).isTrusted(trusted_);
 
-        if (isOwner(trusted_) || _hashs.s_exist(trusted_.hash())) return true;
-        return _operators[address(this)].s_exist(trusted_);
+        if (isOwner(trusted_) || _hashs.exist(trusted_.hash())) return true;
+        return _operators[address(this)].exist(trusted_);
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
