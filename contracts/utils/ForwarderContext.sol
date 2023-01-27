@@ -4,7 +4,7 @@
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/utils/Context.sol";
-
+import "./Tools.sol";
 
 abstract contract ForwarderContext is Context {
 
@@ -14,11 +14,7 @@ abstract contract ForwarderContext is Context {
 
     function _msgSender() internal view virtual override returns (address sender) {
         if (isTrustedForwarder(msg.sender)) {
-            // The assembly code is more direct than the Solidity version using `abi.decode`.
-            /// @solidity memory-safe-assembly
-            assembly {
-                sender := shr(96, calldataload(sub(calldatasize(), 20)))
-            }
+            return Tools.getTailAddress();
         } else {
             return super._msgSender();
         }

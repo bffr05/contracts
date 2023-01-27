@@ -32,9 +32,12 @@ library Tools  {
     function addTailAddress(bytes memory data_,address addr_) internal view returns (bytes memory ) {
         return abi.encodePacked( data_, addr_ );
     }
-    /*function getTailAddress() internal pure returns (address) {
-        return msg.data.toAddress(msg.data.length - 20);
-    }*/
+    function getTailAddress() internal pure returns (address sender_) {
+        /// @solidity memory-safe-assembly
+        assembly {
+            sender_ := shr(96, calldataload(sub(calldatasize(), 20)))
+        }
+    }
     /*function forwardWithTailMsgSender(address delegate_) internal {
         (bool _result, ) = delegate_.call(addTailMsgSender( msg.data));
         assembly {
@@ -64,12 +67,22 @@ library Tools  {
         }
     }
     function forwardStaticWithTailMsgSender(address delegate_) internal view {
-        (bool _result, ) = delegate_.staticcall(addTailMsgSender( msg.data));
         assembly {
+
+            calldatacopy(0, 0, calldatasize())
+            mstore(calldatasize(),caller()) 
+
+            let result := staticcall(gas(), delegate_, 0, add(calldatasize(),32), 0, 0)
+
             returndatacopy(0, 0, returndatasize())
-            switch _result
-            case 0 { revert(0, returndatasize()) }
-            default { return(0, returndatasize()) }
+
+            switch result
+            case 0 {
+                revert(0, returndatasize())
+            }
+            default {
+                return(0, returndatasize())
+            }
         }
     }
     /*function delegateToTailAddress() internal {
