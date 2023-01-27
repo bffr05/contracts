@@ -43,29 +43,13 @@ contract Forwarder_byte
 */
 
 contract Forwarder  {
-    //using Tools for address;
+    using Tools for address;
     address          internal       _delegate;
    
     fallback() external virtual payable {
         //if (msg.sender == _delegate)
         //    Tools.delegateToTailAddress();
-        assembly {
-
-            calldatacopy(0, 0, calldatasize())
-            mstore(calldatasize(),caller()) 
-
-            let result := call(gas(), _delegate,callvalue(), 0, add(calldatasize(),32), 0, 0)
-
-            returndatacopy(0, 0, returndatasize())
-
-            switch result
-            case 0 {
-                revert(0, returndatasize())
-            }
-            default {
-                return(0, returndatasize())
-            }
-        }
+        _delegate.forwardWithTailMsgSender();
     }
 
     constructor(address delegate_)  {
