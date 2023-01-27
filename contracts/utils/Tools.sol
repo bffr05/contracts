@@ -3,10 +3,10 @@
 
 pragma solidity ^0.8.0;
 
-import "@solidity-bytes-utils/contracts/BytesLib.sol";
+//import "@solidity-bytes-utils/contracts/BytesLib.sol";
 
 library Tools  {
-    using BytesLib for bytes;
+    //using BytesLib for bytes;
 
 
     bytes32 constant KECCAK256NULL = 0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470;
@@ -32,9 +32,9 @@ library Tools  {
     function addTailAddress(bytes memory data_,address addr_) internal view returns (bytes memory ) {
         return abi.encodePacked( data_, addr_ );
     }
-    function getTailAddress() internal pure returns (address) {
+    /*function getTailAddress() internal pure returns (address) {
         return msg.data.toAddress(msg.data.length - 20);
-    }
+    }*/
     /*function forwardWithTailMsgSender(address delegate_) internal {
         (bool _result, ) = delegate_.call(addTailMsgSender( msg.data));
         assembly {
@@ -72,7 +72,7 @@ library Tools  {
             default { return(0, returndatasize()) }
         }
     }
-    function delegateToTailAddress() internal {
+    /*function delegateToTailAddress() internal {
         address _implementation = getTailAddress();
         (bool _result, ) = _implementation.delegatecall(msg.data);
         assembly {
@@ -82,7 +82,7 @@ library Tools  {
             default { return(0, returndatasize()) }
         }
       
-    }
+    }*/
 
     function forwardStatic(address delegate_) internal view {
         (bool _result, ) = delegate_.staticcall(msg.data);

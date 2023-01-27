@@ -5,7 +5,7 @@ Fell free to use them and let me know about hello@mcdu.com
     * Array.sol is a very useful internal library (no need to deploy it) to handle arrays from various types, used a lot in my projects
     * Tools.sol are some tools related to contract address with asm 
     * Referal.sol are base abstract contract specifying a contract refer to a another contract
-    * Ghost.sol is a empty contract that forward all calls to a refered contract adding the msg.sender to end of call params, the is the base for all virtual tokens
+    * Forwarder.sol is a empty contract that forward all calls to a refered contract adding the msg.sender to end of call params, the is the base for all virtual tokens
 
 ## token
     * iERC721Extended.sol is my own Interface expension of IERC721 specifying the exists(id) and listing all ids of NFT globally or per user

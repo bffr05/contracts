@@ -1,9 +1,9 @@
 dependencies:
     - OpenZeppelin/openzeppelin-contracts@4.8.1
-    - GNSPS/solidity-bytes-utils@0.8.0
+    ##- GNSPS/solidity-bytes-utils@0.8.0
 compiler:
     solc:
         remappings:
             - "@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.8.1"
-            - "@solidity-bytes-utils=GNSPS/solidity-bytes-utils@0.8.0"
+            ##- "@solidity-bytes-utils=GNSPS/solidity-bytes-utils@0.8.0"
 

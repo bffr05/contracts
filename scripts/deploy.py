@@ -85,7 +85,7 @@ def supply(accountfrom,account,amount):
 
 LocatorAddress = EthAddress("0x455b153B592d4411dCf5129643123639dcF3c806")
 kAccess = network.web3.keccak(bytes("Access", 'ascii'))
-kGhost_Deployer = network.web3.keccak(bytes("Ghost_Deployer", 'ascii'))
+kForwarder_Deployer = network.web3.keccak(bytes("Forwarder_Deployer", 'ascii'))
 
 def main():
     export_network()
@@ -124,10 +124,10 @@ def main():
     updatemapjson(str(network.web3.chain_id),"Access",ILocator.get['bytes32'](kAccess))
 
 
-    if True: ##len(Ghost_Deployer) ==0 or ILocator.get(kGhost_Deployer) != Ghost_Deployer[-1]:
-        addr = Ghost_Deployer.deploy({"from": mainaccount()})
-        ILocator.set(kGhost_Deployer,addr,{"from": mainaccount()})
-    updatemapjson(str(network.web3.chain_id),"Ghost_Deployer",ILocator.get['bytes32'](kGhost_Deployer))
+    if True: ##len(Forwarder_Deployer) ==0 or ILocator.get(kForwarder_Deployer) != Forwarder_Deployer[-1]:
+        addr = Forwarder_Deployer.deploy({"from": mainaccount()})
+        ILocator.set(kForwarder_Deployer,addr,{"from": mainaccount()})
+    updatemapjson(str(network.web3.chain_id),"Forwarder_Deployer",ILocator.get['bytes32'](kForwarder_Deployer))
 
     time.sleep(0.1)
 
