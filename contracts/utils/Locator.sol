@@ -59,9 +59,11 @@ interface ILocation {
 abstract contract LocationBase {
     address internal _locator = LocatorAddress; 
 
-
+    function validLocator() public view returns (bool) {
+        return _locator.code.length != 0;
+    }
     function location(bytes32 arg_) public view returns (address out_) {
-        require(_locator.code.length != 0,"Locator not found");
+        require(validLocator(),"Locator not found");
         out_ = Locator(_locator).location(arg_);
     }
     function location(string memory arg_) public view returns (address out_) {
