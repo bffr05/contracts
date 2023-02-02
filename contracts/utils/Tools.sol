@@ -85,9 +85,8 @@ library Tools  {
             }
         }
     }
-    /*function delegateToTailAddress() internal {
-        address _implementation = getTailAddress();
-        (bool _result, ) = _implementation.delegatecall(msg.data);
+    function delegate(address implementation_) internal {
+        (bool _result, ) = implementation_.delegatecall(msg.data);
         assembly {
             returndatacopy(0, 0, returndatasize())
             switch _result
@@ -95,7 +94,7 @@ library Tools  {
             default { return(0, returndatasize()) }
         }
       
-    }*/
+    }
 
     function forwardStatic(address delegate_) internal view {
         (bool _result, ) = delegate_.staticcall(msg.data);

@@ -7,7 +7,7 @@ import "./Blacklist.sol";
 import "./Operatorable.sol";
 import "../utils/Locator.sol";
 
-contract Access is Operatorable,Blacklist {
+contract Access is OperatorableServer {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //          supportsInterface
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -15,11 +15,11 @@ contract Access is Operatorable,Blacklist {
         public
         view
         virtual
-        override( Operatorable,Blacklist)
+        override( OperatorableServer)
         returns (bool)
     {
         return
-            Operatorable.supportsInterface(interfaceId) || Blacklist.supportsInterface(interfaceId);
+            OperatorableServer.supportsInterface(interfaceId);
     }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //          constructor

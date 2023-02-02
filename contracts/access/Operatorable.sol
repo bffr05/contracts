@@ -56,7 +56,10 @@ interface IROperatorable {
     ) external;
 }
 
-contract Operatorable is IERC165, Trustable, IOperatorable, IROperatorable {
+contract OperatorableClient is TrustableClient, IOperatorable {
+    
+    using Tools for address;
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //          supportsInterface
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -64,37 +67,33 @@ contract Operatorable is IERC165, Trustable, IOperatorable, IROperatorable {
         public
         view
         virtual
-        override(Trustable, IERC165)
+        override(TrustableClient)
         returns (bool)
     {
         return
-            Trustable.supportsInterface(interfaceId_) ||
+            super.supportsInterface(interfaceId_) ||
             interfaceId_ == type(IOperatorable).interfaceId ||
             interfaceId_ == type(IROperatorable).interfaceId;
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //          using
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    using Array for address[];
-
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //          attributes
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //          constructor
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //constructor(address referral_) Trustable(referral_) {}
-
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //          _msgSender() public/external functions
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    function setApprovalForAll(address operator_, bool approved_)
-        public
-        virtual
-    {
+    function setApprovalForAll(address operator_, bool approved_) public virtual {
         return setOperator(operator_, approved_);
     }
+    function authorizeOperator(address operator_) public virtual {
+        return setOperator(operator_, true);
+    }
+    function revokeOperator(address operator_) public virtual {
+        return setOperator(operator_, false);
+    }
+    function setOperator(address operator_, bool approved_) public virtual {
+        if (isReferred()) 
+            if (ITrustable(referral()).isTrusted(address(this)))
+                return IROperatorable(referral()).setOperator(_msgSender(),operator_,approved_);
+    }
+
 
     function isApprovedForAll(address user_, address operator_)
         public
@@ -114,13 +113,7 @@ contract Operatorable is IERC165, Trustable, IOperatorable, IROperatorable {
         return isOperator(tokenHolder, operator_);
     }
 
-    function authorizeOperator(address operator_) public virtual {
-        return setOperator(operator_, true);
-    }
 
-    function revokeOperator(address operator_) public virtual {
-        return setOperator(operator_, false);
-    }
 
     modifier onlyOperator(address user_) {
         require(
@@ -130,7 +123,71 @@ contract Operatorable is IERC165, Trustable, IOperatorable, IROperatorable {
         _;
     }
 
-    function setOperator(address operator_, bool approved_) public {
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //          public/external functions
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    function getOperators(address user_)
+        public virtual
+        view
+        returns (address[] memory)
+    {
+        if (isReferred())
+            //if (Operatorable(referral()).isTrusted(address(this)))
+                return IOperatorable(referral()).getOperators(user_);
+        return new address[](0);
+        //return _operators[user_];
+    }
+
+    function isOperator(address user_, address operator_)
+        public virtual
+        view
+        returns (bool)
+    {
+        if (isReferred())
+            //if (Operatorable(referral()).isTrusted(address(this)))
+                return IOperatorable(referral()).isOperator(user_, operator_);
+        return false;
+        //return _operators[user_].exist(operator_) || user_ == operator_;
+    }
+}
+
+
+
+contract OperatorableServer is TrustableClient,OperatorableClient, TrustableServer, IROperatorable {
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //          supportsInterface
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    function supportsInterface(bytes4 interfaceId_)
+        public
+        view
+        virtual
+        override(TrustableClient,OperatorableClient,TrustableServer)
+        returns (bool)
+    {
+        return
+            OperatorableClient.supportsInterface(interfaceId_) ||
+            TrustableServer.supportsInterface(interfaceId_) ||
+            interfaceId_ == type(IROperatorable).interfaceId;
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //          using
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    using Array for address[];
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //          attributes
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //          constructor
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //constructor(address referral_) Trustable(referral_) {}
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //          _msgSender() public/external functions
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    function setOperator(address operator_, bool approved_) public override virtual {
         _setOperator(_msgSender(), operator_, approved_);
     }
 
@@ -148,26 +205,24 @@ contract Operatorable is IERC165, Trustable, IOperatorable, IROperatorable {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //          public/external functions
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    function getOperators(address user_)
-        public
-        view
-        returns (address[] memory)
+    function getOperators(address user_) public virtual override view returns (address[] memory)
     {
         if (isReferred())
-            if (Operatorable(referral()).isTrusted(address(this)))
-                return Operatorable(referral()).getOperators(user_);
+            //if (Operatorable(referral()).isTrusted(address(this)))
+                return IOperatorable(referral()).getOperators(user_);
         return _operators[user_];
     }
 
-    function isOperator(address user_, address operator_)
-        public
-        view
-        returns (bool)
-    {
+    function isOperator(address user_, address operator_) public virtual override view returns (bool) {
         if (isReferred())
-            if (Operatorable(referral()).isTrusted(address(this)))
-                return Operatorable(referral()).isOperator(user_, operator_);
+            //if (Operatorable(referral()).isTrusted(address(this)))
+                return IOperatorable(referral()).isOperator(user_, operator_);
         return _operators[user_].exist(operator_) || user_ == operator_;
+    }
+
+
+    function isTrusted(address trusted_) public virtual override(TrustableClient,TrustableServer) view returns (bool) {
+        return TrustableServer.isTrusted(trusted_);
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -179,8 +234,8 @@ contract Operatorable is IERC165, Trustable, IOperatorable, IROperatorable {
         bool approved_
     ) internal {
         if (isReferred()) 
-            if (Operatorable(referral()).isTrusted(address(this)))
-                return Operatorable(referral()).setOperator(user_,operator_,approved_);
+            if (ITrustable(referral()).isTrusted(address(this)))
+                return IROperatorable(referral()).setOperator(user_,operator_,approved_);
         assert(user_ != operator_);
         if (approved_) _operators[user_].insert(operator_);
         else _operators[user_].remove(operator_);
