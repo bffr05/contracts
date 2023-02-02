@@ -39,7 +39,7 @@ contract Locator is Ownable,ILocator {
         return get(keccak256(abi.encodePacked(arg_)));
     }
 
-    function set(bytes32 hash_, address addr_) public onlyOwner() {
+    function set(bytes32 hash_, address addr_) public onlyOwner {
         require(!(_location[hash_]!=address(0) && writeonce), "Location write once");
         _location[hash_] = addr_;
     }
@@ -80,7 +80,7 @@ abstract contract Location is LocationBase,ILocation,Ownable {
     function locator() public view returns (address) {
         return _locator;
     }
-    function setLocator(address arg_) public onlyOwner() {
+    function setLocator(address arg_) public onlyOwner {
         _setLocator(arg_);
     }
 }
