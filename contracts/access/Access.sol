@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // Beef Access Contracts v0.0.0 hello@mcdu.com
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.4;
 
 import "./Blacklist.sol";
 import "./Operatorable.sol";

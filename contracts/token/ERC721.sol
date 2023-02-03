@@ -2,7 +2,7 @@
 // Beef Contracts v0.0.0 hello@mcdu.com
 // inspired by OpenZeppelin Contracts (last updated v4.6.0) (token/ERC721/ERC721.sol)
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.4;
 
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";

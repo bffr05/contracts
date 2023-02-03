@@ -5,7 +5,7 @@
 // Locator.constructor      Gas used:   466 888
 // Locator.transfer         Gas used:    28 637
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.4;
 
 import "../access/Ownable.sol";
 
