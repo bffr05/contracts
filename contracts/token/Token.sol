@@ -176,20 +176,30 @@ library Token {
             features_ = features(token_, true);
         return features_ & (TypeERC721|TypeERC1155|TID) != 0;
     }
+    function mt(uint40 features_) internal view returns (bool) {
+        return features_ & (TypeERC1155|MT) != 0;
+    }
     function mt(address token_, uint40 features_) internal view returns (bool) {
         if (features_ == 0)
             features_ = features(token_, true);
-        return features_ & (TypeERC1155|MT) != 0;
+        return mt(features_);
+    }
+
+    function nft(uint40 features_) internal view returns (bool) {
+        return features_ & (TypeERC721|NFT) != 0;
     }
     function nft(address token_, uint40 features_) internal view returns (bool) {
         if (features_ == 0)
             features_ = features(token_, true);
-        return features_ & (TypeERC721|NFT) != 0;
+        return nft(features_);
+    }
+    function ft(uint40 features_) internal view returns (bool) {
+        return features_ & (TypeERC20|TypeERC777|FT) != 0;
     }
     function ft(address token_, uint40 features_) internal view returns (bool) {
         if (features_ == 0)
             features_ = features(token_, true);
-        return features_ & (TypeERC20|TypeERC777|FT) != 0;
+        return ft(features_);
     }
 /*
     function transferFrom(
