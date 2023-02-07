@@ -16,15 +16,16 @@ import "../../interfaces/IContractWithId.sol";
 library Token {
     address constant COIN = address(0); //0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE
 
-    uint40 constant TypeMask = 0x00000000ff; //
-    uint40 constant TypeCoin = 0x0000000001; // is Coin
-    uint40 constant TypeGeneric = 0x0000000002; // is Generic TokenLib | Supports ITokenType
-    uint40 constant TypeERC20 = 0x0000000004; // is ERC20
-    uint40 constant TypeERC721 = 0x0000000008; // is ERC721
-    uint40 constant TypeERC777 = 0x0000000010; // is ERC777
-    uint40 constant TypeERC1155 = 0x0000000020; // is ERC1155
-    uint40 constant TypeReferral = 0x00000000ff; // is a Referral TokenLib
+    uint40 constant TypeMask =              0x00000000ff; //
+    uint40 constant TypeCoin =              0x0000000001; // is Coin
+    uint40 constant TypeGeneric =           0x0000000002; // is Generic TokenLib | Supports ITokenType
+    uint40 constant TypeERC20 =             0x0000000004; // is ERC20
+    uint40 constant TypeERC721 =            0x0000000008; // is ERC721
+    uint40 constant TypeERC777 =            0x0000000010; // is ERC777
+    uint40 constant TypeERC1155 =           0x0000000020; // is ERC1155
+    uint40 constant TypeReferral =          0x00000000ff; // is a Referral TokenLib
 
+    uint40 constant TT =                    0x0000000700; // Mask FT/NFT/MT
     uint40 constant FT =                    0x0000000100; // is FT
     uint40 constant NFT =                   0x0000000200; // is NFT
     uint40 constant MT =                    0x0000000400; // is Multi Token
@@ -175,6 +176,9 @@ library Token {
         if (features_ == 0)
             features_ = features(token_, true);
         return features_ & (TypeERC721|TypeERC1155|TID) != 0;
+    }
+    function tt(uint40 features_) internal view returns (uint40) {
+        return features_ & TT;
     }
     function mt(uint40 features_) internal view returns (bool) {
         return features_ & (TypeERC1155|MT) != 0;
