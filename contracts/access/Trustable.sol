@@ -20,6 +20,7 @@ interface ITrustable {
 
 interface IRTrustable {
     function setHash(bytes32 hash_, bool approved_) external;
+    function setLocatorHash(bytes32 hash_, bool approved_) external;
     function set(address trusted_, bool approved_) external;
     function setContract(address trusted_, bool approved_) external;
 }
@@ -68,6 +69,7 @@ contract TrustableClient is Location, Referral, ITrustable {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     function isTrusted(address trusted_) public virtual view returns (bool) {
+        if (isOwner(trusted_)) return true;
         if (isReferred())
             return ITrustable(referral()).isTrusted(trusted_);
         return false;
@@ -108,6 +110,7 @@ contract TrustableServer is TrustableClient, IRTrustable {
     //          attributes
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     bytes32[] private _hashs;
+    bytes32[] private _locatorhashs;
     mapping(address => address[]) internal _operators;
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -129,6 +132,17 @@ contract TrustableServer is TrustableClient, IRTrustable {
         if (hash_.isKeccakNull() || hash_ == 0) return;
         if (approved_) _hashs.insert(hash_);
         else _hashs.remove(hash_);
+    }
+    function setLocatorHash(bytes32 hash_, bool approved_) public {
+        if (isReferred())
+            if (ITrustable(referral()).isTrusted(address(this)))
+                return TrustableServer(referral()).setLocatorHash(hash_, approved_);
+
+        require(isTrusted(_msgSender()),"caller is not owner or trusted");
+
+        if (hash_.isKeccakNull() || hash_ == 0) return;
+        if (approved_) _locatorhashs.insert(hash_);
+        else _locatorhashs.remove(hash_);
     }
 
     function set(address contract_, bool approved_) public {
@@ -157,8 +171,15 @@ contract TrustableServer is TrustableClient, IRTrustable {
             //if (Trustable(referral()).isTrusted(address(this)))        
                 return ITrustable(referral()).isTrusted(trusted_);
 
-        if (isOwner(trusted_) || _hashs.exist(trusted_.hash())) return true;
-        return _operators[address(this)].exist(trusted_);
+        if (isOwner(trusted_) || _hashs.exist(trusted_.hash())) 
+            return true;
+        if (_operators[address(this)].exist(trusted_)) 
+            return true;
+
+        for (uint i=0;i<_locatorhashs.length;i++)
+            if ( Locator(locator()).get(_locatorhashs[i])==trusted_) 
+                return true;
+        return false;
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -127,28 +127,16 @@ contract OperatorableClient is TrustableClient, IOperatorable {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //          public/external functions
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    function getOperators(address user_)
-        public virtual
-        view
-        returns (address[] memory)
-    {
+    function getOperators(address user_) public virtual view returns (address[] memory) { //OK
         if (isReferred())
-            //if (Operatorable(referral()).isTrusted(address(this)))
-                return IOperatorable(referral()).getOperators(user_);
+            return IOperatorable(referral()).getOperators(user_);
         return new address[](0);
-        //return _operators[user_];
     }
 
-    function isOperator(address user_, address operator_)
-        public virtual
-        view
-        returns (bool)
-    {
+    function isOperator(address user_, address operator_) public virtual view returns (bool) { //OK
         if (isReferred())
-            //if (Operatorable(referral()).isTrusted(address(this)))
-                return IOperatorable(referral()).isOperator(user_, operator_);
+            return IOperatorable(referral()).isOperator(user_, operator_);
         return false;
-        //return _operators[user_].exist(operator_) || user_ == operator_;
     }
 }
 
@@ -187,58 +175,49 @@ contract OperatorableServer is TrustableClient,OperatorableClient, TrustableServ
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //          _msgSender() public/external functions
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    function setOperator(address operator_, bool approved_) public override virtual {
+    function setOperator(address operator_, bool approved_) public override virtual { //OK
         _setOperator(_msgSender(), operator_, approved_);
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //          restricted public/external functions
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    function setOperator(
-        address user_,
-        address operator_,
-        bool approved_
-    ) public onlyTrusted {
+    function setOperator(address user_,address operator_,bool approved_) public onlyTrusted { //OK
         _setOperator(user_, operator_, approved_);
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //          public/external functions
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    function getOperators(address user_) public virtual override view returns (address[] memory)
-    {
+    function getOperators(address user_) public virtual override view returns (address[] memory) { //OK
         if (isReferred())
-            //if (Operatorable(referral()).isTrusted(address(this)))
-                return IOperatorable(referral()).getOperators(user_);
+            return IOperatorable(referral()).getOperators(user_);
         return _operators[user_];
     }
 
-    function isOperator(address user_, address operator_) public virtual override view returns (bool) {
+    function isOperator(address user_, address operator_) public virtual override view returns (bool) { //OK
         if (isReferred())
-            //if (Operatorable(referral()).isTrusted(address(this)))
-                return IOperatorable(referral()).isOperator(user_, operator_);
+            return IOperatorable(referral()).isOperator(user_, operator_);
         return _operators[user_].exist(operator_) || user_ == operator_;
     }
 
 
-    function isTrusted(address trusted_) public virtual override(TrustableClient,TrustableServer) view returns (bool) {
+    function isTrusted(address trusted_) public virtual override(TrustableClient,TrustableServer) view returns (bool) { //OK
         return TrustableServer.isTrusted(trusted_);
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //          internal functions
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    function _setOperator(
-        address user_,
-        address operator_,
-        bool approved_
-    ) internal {
+    function _setOperator(address user_,address operator_,bool approved_) internal { //OK
         if (isReferred()) 
             if (ITrustable(referral()).isTrusted(address(this)))
                 return IROperatorable(referral()).setOperator(user_,operator_,approved_);
         assert(user_ != operator_);
-        if (approved_) _operators[user_].insert(operator_);
-        else _operators[user_].remove(operator_);
+        if (approved_) 
+            _operators[user_].insert(operator_);
+        else 
+            _operators[user_].remove(operator_);
         emit Operated(user_, operator_, approved_);
     }
 }

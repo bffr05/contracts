@@ -67,7 +67,7 @@ contract Ownable is IERC165, IOwnable,IROwnable,ForwarderContext {
     /// @dev Private method is used instead of inlining into modifier because modifiers are copied into each method,
     ///     and the use of immutable means the address bytes are copied in every place the modifier is used.
     function checkOnlyOwner() internal view {
-        require(_owner == _msgSender(),"Ownable: caller is not the owner");
+        require(isOwner(_msgSender()),"Ownable: caller is not the owner");
     }
 
     /// @dev Throws if called by any account other than the owner.
@@ -99,7 +99,7 @@ contract Ownable is IERC165, IOwnable,IROwnable,ForwarderContext {
     }
 
     function isOwner(address caller_) public view virtual returns (bool) {
-        return (caller_ == _owner);
+        return (caller_ == _owner || caller_ == address(this));
     }
 
 

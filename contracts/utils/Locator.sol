@@ -40,7 +40,7 @@ contract Locator is Ownable,ILocator {
         _location[hash_] = addr_;
     }
     function set(string memory arg_, address addr_) public {
-        _location[hash(arg_)] = addr_;
+        Locator(this).set(hash(arg_),addr_);
     }
     function hash( address writer_, string memory arg_) public view returns (bytes32) {
         return keccak256(abi.encodePacked(writer_,arg_));
