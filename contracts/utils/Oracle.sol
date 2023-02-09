@@ -72,6 +72,10 @@ contract Oracle is Ownable,Location,TrustableClient,IOracle {
         _dynamic.remove(feed_);
     }
 
+    function set(bytes32 hash_, uint256 data_) public onlyTrusted {
+        _oracle[hash_] = abi.encode(data_);
+        _timestamp[hash_] = block.timestamp;
+    }
     function set(bytes32 hash_, bytes calldata data_) public onlyTrusted {
         _oracle[hash_] = data_;
         _timestamp[hash_] = block.timestamp;
