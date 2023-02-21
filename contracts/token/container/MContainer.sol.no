@@ -1,0 +1,211 @@
+// SPDX-License-Identifier: MIT
+// Beef Contracts v0.0.0 hello@mcdu.com
+
+pragma solidity ^0.8.17;
+import "../erc721/MERC721.sol";
+import "./IContainer.sol";
+
+//import "@bffr05/interfaces/IContractWithId.sol";
+//import "@bffr05/interfaces/IAble.sol";
+import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
+import "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol";
+import "./Container.sol";
+
+
+contract MContainer is IMContainer, aMERC721 {
+
+    using Array for bytes32[];
+    using Array for address[];
+    using Array for uint256[];
+
+    function supportsInterface(bytes4 interfaceId_)
+        public
+        view
+        virtual
+        override(aMERC721)
+        returns (bool)
+    {
+        return
+            super.supportsInterface(interfaceId_) ||
+            interfaceId_ == type(IMContainer).interfaceId;
+    }
+
+
+
+
+
+    uint256 private _nextid;
+    mapping(address => mapping(uint256 => mapping(address => uint256[]))) public IdOrValue;
+    mapping(address => mapping(uint256 => mapping(address => mapping(uint256 => uint256)))) public IdAndValue;
+
+    address[] private _tokens;
+
+    //constructor(TokenPlace tokenplace_) Machine(tokenplace_) {}
+
+    bytes private constant _IdAddress = "AccntAddress"; //must be length 12
+
+    function toIdAddress(address a_) public pure returns (uint256) {
+        return uint256(bytes32(abi.encodePacked(_IdAddress, a_)));
+    }
+
+    function isIdAddress(uint256 id_) public pure returns (bool) {
+        id_;
+        return false;
+        // TODO
+        /*
+            BytesLib.equal(
+                _IdAddress,
+                BytesLib.slice(abi.encodePacked(id_), 0, _IdAddress.length)
+            );
+            */
+    }
+    function accountIdCorrect(uint256 accountid_,address msgsender_)
+        public
+        pure
+        returns (uint256)
+    {
+        if (isIdAddress(accountid_)) return accountid_;
+        return accountid_ == 0 ? toIdAddress(msgsender_) : accountid_;
+    }
+
+    function features(address token_) public virtual view override returns (uint40) {
+        return super.features(token_) | Token.Contains;
+    }
+
+    /*function bytecode() internal view virtual override returns (bytes memory) {
+    }*/
+
+/*
+    function features(address t_) public virtual returns (uint40)
+    {
+        require(false,"features disable");
+    }
+*/
+    function tokens() public view returns (address[] memory) {
+        return _tokens;
+    }
+
+    function createAccount(uint256 tokenId_, address owner_) public returns (uint256) {
+        return _createAccount(msg.sender,tokenId_,owner_);
+    }
+    function _createAccount(address token_, uint256 tokenId_, address owner_) internal returns (uint256) {
+        require((!isIdAddress(tokenId_)) || toIdAddress(owner_) == tokenId_,"AccountID not available");
+        if (tokenId_ == 0) {
+            _nextid++;
+            while (exists(token_, _nextid) || isIdAddress(_nextid))
+                _nextid++;
+            tokenId_ = _nextid;
+        }
+
+        _safeMint(token_, owner_, tokenId_, "");
+        return tokenId_;
+    }
+
+    function transferable(address token_, uint256 tokenId_) public pure returns (bool) {
+        token_;
+        if (isIdAddress(tokenId_)) return false;
+        return true;
+    }
+
+    function _beforeTokenTransfer( 
+        address token, 
+        address from, 
+        address to, 
+        uint256 tokenId
+         ) internal virtual override {
+        if (tokenId!=toIdAddress(to))
+            require(transferable(token, tokenId), "account not transferrable");
+        super._beforeTokenTransfer(token,from,to,tokenId);
+    }
+
+
+    function _unstackableNFT( address token_, uint256 tokenId_, address t_,uint256 v_ ) internal view virtual returns (bool) {
+        token_; tokenId_;t_;v_;
+        return false;
+    }
+    function _unstackableFT( address token_, uint256 tokenId_, address t_,uint256 v_ ) internal view virtual returns (bool) {
+        token_; tokenId_;t_;v_;
+        return false;
+    }
+    function unstackable( address token_, uint256 tokenId_, address t_,uint256 v_ ) public view virtual returns (bool) {
+        if (TokenPlace(location(kTokenPlace)).roFeatures(t_) &  Token.NFT != 0)
+            return _unstackableNFT(token_, tokenId_, t_,v_);
+        else
+            return _unstackableFT(token_, tokenId_, t_,v_);
+
+    }
+
+    function value( address token_, uint256 tokenId_, address t_ ) public view virtual returns (uint256) {
+        require(TokenPlace(location(kTokenPlace)).roFeatures(t_) &  Token.NFT==0,"token is NFT");
+        if (IdOrValue[token_][tokenId_][t_].length == 0) return 0;
+        return IdOrValue[token_][tokenId_][t_][0];
+    }
+/*
+    function _valueAdd( address token_, uint256 tokenId_, address t_, uint256 v_ ) internal virtual {
+        if (values[token_][tokenId_][t_].length == 0)
+            values[token_][tokenId_][t_].push(v_);
+        else values[token_][tokenId_][t_][0] += v_;
+    }
+    function _valueSub( address token_, uint256 tokenId_, address t_, uint256 v_ ) internal virtual {
+        values[token_][tokenId_][t_][0] -= v_;
+    }
+*/
+    function addValue( uint256 tokenId_, address t_, uint256 tId_,uint256 v_ ) public {
+        /*_tokens.insert(t_);
+        if (TokenPlace(location(kTokenPlace)).features(t_) &  Token.NFT != 0)
+            require(values[msg.sender][tokenId_][t_].insert(v_),"insert NFT failed");
+        else
+            _valueAdd(msg.sender,tokenId_,t_,v_);
+        */
+    }
+    function removeValue(uint256 tokenId_,address t_,uint256 tId_,uint256 v_) public {
+        /*require(unstackable(msg.sender, tokenId_, t_,v_ ) , "Unstackable" );
+        if (TokenPlace(location(kTokenPlace)).roFeatures(t_) & Token.NFT != 0 ) 
+            require(values[msg.sender][tokenId_][t_].remove(v_),"remove NFT failed");
+        else  
+        {
+            require(value(msg.sender, tokenId_, t_) >= v_,"Not enought balanceOf/credit allowance");
+            _valueSub(msg.sender,tokenId_,t_,v_);
+        }*/
+    }
+
+    function content(address token_, uint256 tokenId_) public view returns (address[] memory t_,uint256[] memory tId_,uint256[] memory v_) {
+        /*uint256 len;
+        for (uint256 i; i < _tokens.length; i++)
+            len+=IdOrValue[token_][tokenId_][_tokens[i]].length;
+        tokenout_ = new address[](len);
+        v_ = new uint256[](len);
+        len=0;
+        for (uint256 i; i < _tokens.length; i++) {
+            for (uint256 j; j < values[token_][tokenId_][_tokens[i]].length; j++) {
+                tokenout_[len] = _tokens[i];
+                v_[len] = values[token_][tokenId_][_tokens[i]][j];
+                len++;
+            }
+        }*/
+    }
+
+    function content( address token_, uint256 tokenId_, address[] calldata ts_ ) public view returns (uint256[][] memory tId_,uint256[][] memory v_) {
+        tId_ =  new uint256[][](ts_.length);
+        v_ =  new uint256[][](ts_.length);
+        for (uint256 i; i < ts_.length; i++)
+            (tId_[i],v_[i]) = content(token_,tokenId_,ts_[i]);
+    }
+
+    function content( address token_, uint256 tokenId_, address t_ ) public view returns (uint256[] memory tId_,uint256[] memory v_) {
+        
+        if (Token.tid(t_,TokenPlace(location(kTokenPlace)).roFeatures(t_)))
+        {
+            tId_ = IdOrValue[token_][tokenId_][t_];
+            v_ = new uint256[](tId_.length);
+            for (uint256 i; i < tId_.length; i++) {
+                v_[i] = IdAndValue[token_][tokenId_][t_][tId_[i]];
+                if (v_[i]==0) v_[i] = 1;
+            }
+            return (tId_,v_);
+        }
+        else
+            return (new uint256[](IdOrValue[token_][tokenId_][t_].length),IdOrValue[token_][tokenId_][t_]);
+    }
+    
+}

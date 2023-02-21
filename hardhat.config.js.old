@@ -1,0 +1,21 @@
+
+require("@nomiclabs/hardhat-waffle")
+//require("hardhat-gas-reporter")
+//require("@nomiclabs/hardhat-etherscan")
+require("dotenv").config()
+
+/** @type import('hardhat/config').HardhatUserConfig */
+require('@openzeppelin/hardhat-upgrades');
+module.exports = {
+  solidity: "0.8.17",
+  //defaultNetwork: "n9997",
+  networks: {
+    hardhat: {},    
+    n9997: {
+      url:  "http://172.22.16.240:9997",
+      chainId: 9997,
+      name: "n9997",
+      accounts: [process.env.MAIN_PKEY]
+    }
+  },
+};

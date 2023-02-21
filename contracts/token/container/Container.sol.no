@@ -1,0 +1,128 @@
+// SPDX-License-Identifier: MIT
+// Beef Contracts v0.0.0 hello@mcdu.com
+
+pragma solidity ^0.8.17;
+
+import "./MContainer.sol";
+import "./IContainer.sol";
+import "../../base/utils/Forwarder.sol";
+import "../../base/token/Token.sol";
+import "../tokenplace/TokenPlaceLib.sol";
+import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
+import "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol";
+
+
+contract Container is Forwarder,IContainer,IERC721Receiver,IERC1155Receiver  {
+
+    function supportsInterface(bytes4 interfaceId_) public pure  returns (bool) {
+        return
+            interfaceId_ == type(ITransferable).interfaceId ||
+            interfaceId_ == type(IContainer).interfaceId ||
+            interfaceId_ == type(IContains).interfaceId ||
+            interfaceId_ == type(IContractWithId).interfaceId ||
+            interfaceId_ == type(IERC721Receiver).interfaceId ||
+            interfaceId_ == type(IERC1155Receiver).interfaceId;
+    }
+
+    bool public immutable real;
+
+    constructor(address delegate_, bool real_) Forwarder(delegate_) {
+        real = real_;
+    }
+
+    function onERC721Received(address , address , uint256 , bytes calldata  ) external pure returns (bytes4) {
+        return IERC721Receiver.onERC721Received.selector;
+    }
+
+    function onERC1155Received(address , address , uint256 , uint256 , bytes calldata  ) external pure returns (bytes4) {
+        return IERC1155Receiver.onERC1155Received.selector;
+    }
+
+    function onERC1155BatchReceived(address , address , uint256[] calldata , uint256[] calldata , bytes calldata ) external pure returns (bytes4) {
+        return IERC1155Receiver.onERC1155BatchReceived.selector;
+    }
+
+    function tokens() external view returns (address[] memory) {
+        return MContainer(_delegate).tokens();
+    }
+    
+    function createAccount(uint256 tokenId_) external returns (uint256) {
+        return MContainer(_delegate).createAccount(tokenId_,msg.sender);
+    }
+    function createAccount(uint256 tokenId_, address owner_) external returns (uint256) {
+        return MContainer(_delegate).createAccount(tokenId_,owner_);
+    }
+
+    function content(uint256 tokenId_) external view returns (address[] memory token_,uint256[] memory id_,uint256[] memory v_)  {
+        return MContainer(_delegate).content(address(this),MContainer(_delegate).accountIdCorrect(tokenId_,msg.sender));
+    }
+
+    function content(uint256 tokenId_, address[] calldata ts_) external view returns (uint256[][] memory id_,uint256[][] memory v_) {
+        return MContainer(_delegate).content(address(this),MContainer(_delegate).accountIdCorrect(tokenId_,msg.sender),ts_);
+    }
+
+    function content(uint256 tokenId_, address t_) external view returns (uint256[] memory id_,uint256[] memory v_) {
+        return MContainer(_delegate).content(address(this),MContainer(_delegate).accountIdCorrect(tokenId_,msg.sender),t_);
+    }
+    function transferable(uint256 tokenId_) external view returns (bool) {
+        return MContainer(_delegate).transferable(address(this),tokenId_);
+    }
+    function ownerOf(uint256 accountid_) public view  returns (address) {
+        return MContainer(_delegate).ownerOf(address(this), MContainer(_delegate).accountIdCorrect(accountid_,msg.sender));
+    }
+
+    function exists(uint256 accountid_) public view  returns (bool) {
+        return MContainer(_delegate).exists(address(this), MContainer(_delegate).accountIdCorrect(accountid_,msg.sender));
+    }
+
+    function stake( uint256 accountid_, address t_,uint256 id_, uint256 v_ ) external payable  { 
+        if (v_ == 0) return;
+        uint256 subaccountid_ = MContainer(_delegate).accountIdCorrect(accountid_,msg.sender);
+        if (!exists(subaccountid_)) {
+            if (accountid_ == 0) {
+                MContainer(_delegate).createAccount( subaccountid_, msg.sender );
+            } else require(false, "Must be existant account");
+        }
+        require( ownerOf(subaccountid_) == msg.sender, "Must be owner of account" );
+
+
+        if (!real)
+        {
+            require(msg.value == 0 , "Must be real to receive value");
+            //TODOMContainer(_delegate).addValue(t_, subaccountid_, v_);
+        }
+        else
+        {
+            //TODO
+            /*
+            if (msg.value > 0)
+                MContainer(_delegate).addValue(address(0), subaccountid_, msg.value);
+            if (t_!=address(0))
+                MContainer(_delegate).addValue(t_, subaccountid_, v_);
+            else
+                require(v_==0,"real and address(0) and v_!=0");
+            */
+            TokenPlaceLib.transferFrom( TokenPlace(MContainer(_delegate).location(kTokenPlace)), msg.sender,address(this),t_,Array.munique(id_),Array.munique(v_),""  );
+        }
+    }
+
+    function unstake( uint256 accountid_, address t_,uint256 id_, uint256 v_ ) external  { //override
+        if (v_ == 0) return;
+        accountid_ = MContainer(_delegate).accountIdCorrect(accountid_,msg.sender);
+        require( ownerOf(accountid_) == msg.sender, "Must be owner" );
+
+        //TODO MContainer(_delegate).removeValue(t_, accountid_, v_);
+
+        if (real)
+            TokenPlaceLib.transferFrom( TokenPlace(MContainer(_delegate).location(kTokenPlace)), address(this),msg.sender, t_, Array.munique(id_),Array.munique(v_), "" );
+    }
+
+    function transfer(address to_, uint256 id_) public  {
+        return MContainer(_delegate).transfer(to_,id_);
+
+    }
+    function transferFrom(address from_, address to_, uint256 id_) public  {
+        return MContainer(_delegate).transferFrom(from_,to_,id_);
+    }
+
+}

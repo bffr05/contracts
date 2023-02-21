@@ -1,0 +1,6 @@
+{
+    "git.ignoreLimitWarning": true,
+    "solidity.formatter": "prettier",
+    "solidity.packageDefaultDependenciesContractsDirectory": "",
+    "solidity.packageDefaultDependenciesDirectory": "node_modules",
+}

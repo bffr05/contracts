@@ -1,0 +1,23 @@
+# Docker Compose file Reference (https://docs.docker.com/compose/compose-file/)
+
+version: '3'
+
+# Define services
+services:
+  'gate':
+    #environment:
+    #  - WEB3_PROVIDER_URI=${WEB3_PROVIDER_URI}
+    #  - PRIVATE_KEY=${PRIVATE_KEY}
+    #  - PRIVATE_KEY2=${PRIVATE_KEY2}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ../.env:/.env:ro
+      - ../scripts/bot.py:/app.py:ro
+      - ../build/contracts:/build/contracts:ro
+      - ../brownie-config.yaml:/brownie-config.yaml:ro
+      - ../network-config.json:/network-config.json:ro
+    command: python -u /app.py
+
+
