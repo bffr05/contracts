@@ -1,0 +1,712 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "name": "getCertifier",
+      "outputs": [
+        {
+          "internalType": "contract ITokenCertifier",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getEquivalentCertifier",
+      "outputs": [
+        {
+          "internalType": "contract ITokenEquivalentCertifier",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes4",
+          "name": "interfaceId",
+          "type": "bytes4"
+        }
+      ],
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "ast": {
+    "absolutePath": "interfaces/ITokenEquivalent.sol",
+    "exportedSymbols": {
+      "IContractWithId": [
+        229
+      ],
+      "IERC165": [
+        669
+      ],
+      "ITokenCertified": [
+        439
+      ],
+      "ITokenCertifier": [
+        423
+      ],
+      "ITokenEquivalent": [
+        492
+      ],
+      "ITokenEquivalentCertifier": [
+        476
+      ],
+      "ITokenWithId": [
+        498
+      ],
+      "SContractWithId": [
+        226
+      ],
+      "STokenEquivalent": [
+        452
+      ]
+    },
+    "id": 493,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 441,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "85:23:12"
+      },
+      {
+        "absolutePath": "/Users/benjamin/.brownie/packages/OpenZeppelin/openzeppelin-contracts@4.3.2/contracts/utils/introspection/IERC165.sol",
+        "file": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
+        "id": 442,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 493,
+        "sourceUnit": 670,
+        "src": "109:65:12",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "interfaces/ITokenWithId.sol",
+        "file": "./ITokenWithId.sol",
+        "id": 443,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 493,
+        "sourceUnit": 499,
+        "src": "175:28:12",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "interfaces/ITokenCertified.sol",
+        "file": "./ITokenCertified.sol",
+        "id": 444,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 493,
+        "sourceUnit": 440,
+        "src": "204:31:12",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "canonicalName": "STokenEquivalent",
+        "id": 452,
+        "members": [
+          {
+            "constant": false,
+            "id": 447,
+            "mutability": "mutable",
+            "name": "token",
+            "nameLocation": "283:5:12",
+            "nodeType": "VariableDeclaration",
+            "scope": 452,
+            "src": "267:21:12",
+            "stateVariable": false,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_struct$_SContractWithId_$226_storage_ptr",
+              "typeString": "struct SContractWithId"
+            },
+            "typeName": {
+              "id": 446,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 445,
+                "name": "SContractWithId",
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 226,
+                "src": "267:15:12"
+              },
+              "referencedDeclaration": 226,
+              "src": "267:15:12",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_SContractWithId_$226_storage_ptr",
+                "typeString": "struct SContractWithId"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 449,
+            "mutability": "mutable",
+            "name": "amount",
+            "nameLocation": "302:6:12",
+            "nodeType": "VariableDeclaration",
+            "scope": 452,
+            "src": "294:14:12",
+            "stateVariable": false,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 448,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "294:7:12",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 451,
+            "mutability": "mutable",
+            "name": "fees",
+            "nameLocation": "322:4:12",
+            "nodeType": "VariableDeclaration",
+            "scope": 452,
+            "src": "314:12:12",
+            "stateVariable": false,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 450,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "314:7:12",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "visibility": "internal"
+          }
+        ],
+        "name": "STokenEquivalent",
+        "nameLocation": "244:16:12",
+        "nodeType": "StructDefinition",
+        "scope": 493,
+        "src": "237:92:12",
+        "visibility": "public"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 453,
+              "name": "ITokenCertifier",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 423,
+              "src": "370:15:12"
+            },
+            "id": 454,
+            "nodeType": "InheritanceSpecifier",
+            "src": "370:15:12"
+          }
+        ],
+        "canonicalName": "ITokenEquivalentCertifier",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 476,
+        "linearizedBaseContracts": [
+          476,
+          423,
+          669
+        ],
+        "name": "ITokenEquivalentCertifier",
+        "nameLocation": "341:25:12",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "baseFunctions": [
+              412
+            ],
+            "functionSelector": "01ffc9a7",
+            "id": 461,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "supportsInterface",
+            "nameLocation": "401:17:12",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 457,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 456,
+                  "mutability": "mutable",
+                  "name": "interfaceId",
+                  "nameLocation": "426:11:12",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 461,
+                  "src": "419:18:12",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
+                  },
+                  "typeName": {
+                    "id": 455,
+                    "name": "bytes4",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "419:6:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes4",
+                      "typeString": "bytes4"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "418:20:12"
+            },
+            "returnParameters": {
+              "id": 460,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 459,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 461,
+                  "src": "462:4:12",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 458,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "462:4:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "461:6:12"
+            },
+            "scope": 476,
+            "src": "392:76:12",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "b5e28d99",
+            "id": 475,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "certifyEquivalent",
+            "nameLocation": "483:17:12",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 469,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 464,
+                  "mutability": "mutable",
+                  "name": "token",
+                  "nameLocation": "527:5:12",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 475,
+                  "src": "510:22:12",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ITokenEquivalent_$492",
+                    "typeString": "contract ITokenEquivalent"
+                  },
+                  "typeName": {
+                    "id": 463,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 462,
+                      "name": "ITokenEquivalent",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 492,
+                      "src": "510:16:12"
+                    },
+                    "referencedDeclaration": 492,
+                    "src": "510:16:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ITokenEquivalent_$492",
+                      "typeString": "contract ITokenEquivalent"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 466,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "550:7:12",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 475,
+                  "src": "542:15:12",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 465,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "542:7:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 468,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "575:6:12",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 475,
+                  "src": "567:14:12",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 467,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "567:7:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "500:87:12"
+            },
+            "returnParameters": {
+              "id": 474,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 473,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 475,
+                  "src": "648:25:12",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_STokenEquivalent_$452_memory_ptr_$dyn_memory_ptr",
+                    "typeString": "struct STokenEquivalent[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 471,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 470,
+                        "name": "STokenEquivalent",
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 452,
+                        "src": "648:16:12"
+                      },
+                      "referencedDeclaration": 452,
+                      "src": "648:16:12",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_STokenEquivalent_$452_storage_ptr",
+                        "typeString": "struct STokenEquivalent"
+                      }
+                    },
+                    "id": 472,
+                    "nodeType": "ArrayTypeName",
+                    "src": "648:18:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_STokenEquivalent_$452_storage_$dyn_storage_ptr",
+                      "typeString": "struct STokenEquivalent[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "634:49:12"
+            },
+            "scope": 476,
+            "src": "474:210:12",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 493,
+        "src": "331:360:12",
+        "usedErrors": []
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 477,
+              "name": "ITokenCertified",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 439,
+              "src": "723:15:12"
+            },
+            "id": 478,
+            "nodeType": "InheritanceSpecifier",
+            "src": "723:15:12"
+          }
+        ],
+        "canonicalName": "ITokenEquivalent",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 492,
+        "linearizedBaseContracts": [
+          492,
+          439,
+          669
+        ],
+        "name": "ITokenEquivalent",
+        "nameLocation": "703:16:12",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "baseFunctions": [
+              432
+            ],
+            "functionSelector": "01ffc9a7",
+            "id": 485,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "supportsInterface",
+            "nameLocation": "754:17:12",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 481,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 480,
+                  "mutability": "mutable",
+                  "name": "interfaceId",
+                  "nameLocation": "779:11:12",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 485,
+                  "src": "772:18:12",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
+                  },
+                  "typeName": {
+                    "id": 479,
+                    "name": "bytes4",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "772:6:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes4",
+                      "typeString": "bytes4"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "771:20:12"
+            },
+            "returnParameters": {
+              "id": 484,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 483,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 485,
+                  "src": "815:4:12",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 482,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "815:4:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "814:6:12"
+            },
+            "scope": 492,
+            "src": "745:76:12",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "acc3bc2f",
+            "id": 491,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getEquivalentCertifier",
+            "nameLocation": "836:22:12",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 486,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "858:2:12"
+            },
+            "returnParameters": {
+              "id": 490,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 489,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 491,
+                  "src": "884:25:12",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ITokenEquivalentCertifier_$476",
+                    "typeString": "contract ITokenEquivalentCertifier"
+                  },
+                  "typeName": {
+                    "id": 488,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 487,
+                      "name": "ITokenEquivalentCertifier",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 476,
+                      "src": "884:25:12"
+                    },
+                    "referencedDeclaration": 476,
+                    "src": "884:25:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ITokenEquivalentCertifier_$476",
+                      "typeString": "contract ITokenEquivalentCertifier"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "883:27:12"
+            },
+            "scope": 492,
+            "src": "827:84:12",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 493,
+        "src": "693:221:12",
+        "usedErrors": []
+      }
+    ],
+    "src": "85:830:12"
+  },
+  "contractName": "ITokenEquivalent",
+  "dependencies": [
+    "OpenZeppelin/openzeppelin-contracts@4.3.2/IERC165",
+    "ITokenCertified",
+    "ITokenCertifier",
+    "ITokenEquivalentCertifier"
+  ],
+  "offset": [
+    693,
+    914
+  ],
+  "sha1": "a2aae5ab20263c0ebc05c884265755ad91ab20f3",
+  "source": "// SPDX-License-Identifier: MIT\n// Beef MarketPlace Contracts v0.0.0 hello@mcdu.com\n\npragma solidity ^0.8.0;\nimport \"@openzeppelin/contracts/utils/introspection/IERC165.sol\";\nimport \"./ITokenWithId.sol\";\nimport \"./ITokenCertified.sol\";\n\nstruct STokenEquivalent {\n    SContractWithId token;\n    uint256 amount;\n    uint256 fees;\n}\n\ninterface ITokenEquivalentCertifier is ITokenCertifier {\n    function supportsInterface(bytes4 interfaceId) external view returns (bool);\n\n    function certifyEquivalent(\n        ITokenEquivalent token,\n        uint256 tokenId,\n        uint256 amount\n    )\n        external\n        view\n        returns (\n            STokenEquivalent[] memory\n        );\n    \n}\n\ninterface ITokenEquivalent is ITokenCertified {\n    function supportsInterface(bytes4 interfaceId) external view returns (bool);\n\n    function getEquivalentCertifier() external view returns (ITokenEquivalentCertifier);\n\n}\n",
+  "type": "interface"
+}

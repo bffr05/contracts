@@ -1,0 +1,115 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "bytes4",
+          "name": "interfaceId",
+          "type": "bytes4"
+        }
+      ],
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "ast": {
+    "absolutePath": "interfaces/ITokenWithId.sol",
+    "exportedSymbols": {
+      "IContractWithId": [
+        229
+      ],
+      "IERC165": [
+        669
+      ],
+      "ITokenWithId": [
+        498
+      ],
+      "SContractWithId": [
+        226
+      ]
+    },
+    "id": 499,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 494,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "85:23:13"
+      },
+      {
+        "absolutePath": "interfaces/IContractWithId.sol",
+        "file": "./IContractWithId.sol",
+        "id": 495,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 499,
+        "sourceUnit": 230,
+        "src": "109:31:13",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 496,
+              "name": "IContractWithId",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 229,
+              "src": "236:15:13"
+            },
+            "id": 497,
+            "nodeType": "InheritanceSpecifier",
+            "src": "236:15:13"
+          }
+        ],
+        "canonicalName": "ITokenWithId",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 498,
+        "linearizedBaseContracts": [
+          498,
+          229,
+          669
+        ],
+        "name": "ITokenWithId",
+        "nameLocation": "220:12:13",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 499,
+        "src": "210:47:13",
+        "usedErrors": []
+      }
+    ],
+    "src": "85:172:13"
+  },
+  "contractName": "ITokenWithId",
+  "dependencies": [
+    "IContractWithId",
+    "OpenZeppelin/openzeppelin-contracts@4.3.2/IERC165"
+  ],
+  "offset": [
+    210,
+    257
+  ],
+  "sha1": "96f8b65533429aa7e9aae9f1e63e5e7c18b077fb",
+  "source": "// SPDX-License-Identifier: MIT\n// Beef MarketPlace Contracts v0.0.0 hello@mcdu.com\n\npragma solidity ^0.8.0;\nimport \"./IContractWithId.sol\";\n\n/*struct STokenWithId\n{\n    address token;\n    uint256 tokenId;\n}*/\ninterface ITokenWithId is IContractWithId {\n\n\n}",
+  "type": "interface"
+}

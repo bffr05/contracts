@@ -1,0 +1,35 @@
+{
+  "9997": {
+    "Array": [
+      "0xFbA7910966415d5723C31A7B76e6f2E56FefD164"
+    ],
+    "BytesAndKeccakLib": [
+      "0x60600Ecebf7CF8F6E2Eb3956641AfD0F2864EA2A"
+    ],
+    "BytesLib": [
+      "0xC5E6259a3e2f9e656B6C1a5bDa42c26Ee2A2edf1"
+    ],
+    "KeccakInverter": [
+      "0x46d66cd4fccfb620DAF612dC553CC37F7f94a7d3"
+    ],
+    "Random": [
+      "0x1052e3225D132C9f26Da187D21678eba326E6C66",
+      "0xd62080667a0e67830870bF7209972BF405b7a7CB",
+      "0xc5b8B236381cf2D97a81BeE65F54F9A4DEFFf5CE",
+      "0xD9cEeE1BC117d2A1B211e0601465DB01da76aAab",
+      "0x8B17B51afCf3f00Fae1Cd0D25bDDdc70e25F8B70",
+      "0x5390243452b1C97773E2270CFeD368397a0c9870",
+      "0x624C363D64189F4c968bE0b3cC8Ffc50E46CBA49",
+      "0x8A77eBfc88662fcC68dd7E92c60C230d1A8D61C0"
+    ],
+    "Repository": [
+      "0x6d8D716340965984C2d4534bBfd2730D70e877e2"
+    ],
+    "StringLib": [
+      "0x05A448179b67bd04D67499e16bA2F0eC2C9A990D"
+    ],
+    "Token": [
+      "0x784354B820CeB694402A7B1b069d9bCFFFD63c46"
+    ]
+  }
+}

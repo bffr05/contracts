@@ -1,0 +1,332 @@
+{
+  "abi": [],
+  "allSourcePaths": {
+    "19": "contracts/Bank/CentralBank.sol",
+    "71": "interfaces/IWallet.sol"
+  },
+  "ast": {
+    "absolutePath": "contracts/Bank/CentralBank.sol",
+    "exportedSymbols": {
+      "Bankeable": [
+        22037
+      ],
+      "CentralBank": [
+        2224
+      ],
+      "Currency": [
+        22676
+      ],
+      "IBank": [
+        22650
+      ],
+      "IBankeable": [
+        22469
+      ],
+      "IContractCertified": [
+        25406
+      ],
+      "IContractCertifier": [
+        25397
+      ],
+      "IContractWithId": [
+        25417
+      ],
+      "IERC165": [
+        22386
+      ],
+      "IERC20": [
+        22374
+      ],
+      "IPackedToken": [
+        25674
+      ],
+      "ITokenCertified": [
+        25713
+      ],
+      "ITokenCertifier": [
+        25697
+      ],
+      "ITokenEquivalent": [
+        25766
+      ],
+      "ITokenEquivalentCertifier": [
+        25750
+      ],
+      "ITokenWithId": [
+        25772
+      ],
+      "ITradeable": [
+        22454
+      ],
+      "IWallet": [
+        22771
+      ],
+      "SContractWithId": [
+        25414
+      ],
+      "SPackedTokenAsset": [
+        25632
+      ],
+      "STokenEquivalent": [
+        25726
+      ],
+      "Token": [
+        21512
+      ],
+      "Tradeable": [
+        21999
+      ]
+    },
+    "id": 2225,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2213,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "73:23:19"
+      },
+      {
+        "absolutePath": "interfaces/IWallet.sol",
+        "file": "../../interfaces/IWallet.sol",
+        "id": 2214,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 2225,
+        "sourceUnit": 22772,
+        "src": "98:38:19",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "interfaces/IBank.sol",
+        "file": "../../interfaces/IBank.sol",
+        "id": 2215,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 2225,
+        "sourceUnit": 22651,
+        "src": "137:36:19",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "CentralBank",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 2224,
+        "linearizedBaseContracts": [
+          2224
+        ],
+        "name": "CentralBank",
+        "nameLocation": "185:11:19",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 2218,
+            "mutability": "mutable",
+            "name": "_holders",
+            "nameLocation": "222:8:19",
+            "nodeType": "VariableDeclaration",
+            "scope": 2224,
+            "src": "204:26:19",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_address_$dyn_storage",
+              "typeString": "address[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 2216,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "204:7:19",
+                "stateMutability": "nonpayable",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "id": 2217,
+              "nodeType": "ArrayTypeName",
+              "src": "204:9:19",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                "typeString": "address[]"
+              }
+            },
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 2223,
+            "mutability": "mutable",
+            "name": "_wallets",
+            "nameLocation": "272:8:19",
+            "nodeType": "VariableDeclaration",
+            "scope": 2224,
+            "src": "236:44:19",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_contract$_IWallet_$22771_$",
+              "typeString": "mapping(address => contract IWallet)"
+            },
+            "typeName": {
+              "id": 2222,
+              "keyType": {
+                "id": 2219,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "244:7:19",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "236:27:19",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_contract$_IWallet_$22771_$",
+                "typeString": "mapping(address => contract IWallet)"
+              },
+              "valueType": {
+                "id": 2221,
+                "nodeType": "UserDefinedTypeName",
+                "pathNode": {
+                  "id": 2220,
+                  "name": "IWallet",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 22771,
+                  "src": "255:7:19"
+                },
+                "referencedDeclaration": 22771,
+                "src": "255:7:19",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_IWallet_$22771",
+                  "typeString": "contract IWallet"
+                }
+              }
+            },
+            "visibility": "private"
+          }
+        ],
+        "scope": 2225,
+        "src": "176:109:19",
+        "usedErrors": []
+      }
+    ],
+    "src": "73:213:19"
+  },
+  "bytecode": "6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220ce7743e7327022b9b91169b36cc4edc43a129a03ff029a94cf5b72df753d8e6364736f6c634300080d0033",
+  "bytecodeSha1": "73df0a6f5d0123eb2b2db0faf62b602aa77c123a",
+  "compiler": {
+    "evm_version": "istanbul",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "version": "0.8.13+commit.abaa5c0e"
+  },
+  "contractName": "CentralBank",
+  "coverageMap": {
+    "branches": {
+      "19": {},
+      "71": {}
+    },
+    "statements": {
+      "19": {},
+      "71": {}
+    }
+  },
+  "dependencies": [
+    "IWallet"
+  ],
+  "deployedBytecode": "6080604052600080fdfea2646970667358221220ce7743e7327022b9b91169b36cc4edc43a129a03ff029a94cf5b72df753d8e6364736f6c634300080d0033",
+  "deployedSourceMap": "176:109:19:-:0;;;;;",
+  "language": "Solidity",
+  "natspec": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "offset": [
+    176,
+    285
+  ],
+  "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xCE PUSH24 0x43E7327022B9B91169B36CC4EDC43A129A03FF029A94CF5B PUSH19 0xDF753D8E6364736F6C634300080D0033000000 ",
+  "pcMap": {
+    "0": {
+      "offset": [
+        176,
+        285
+      ],
+      "op": "PUSH1",
+      "path": "19",
+      "value": "0x80"
+    },
+    "2": {
+      "fn": null,
+      "offset": [
+        176,
+        285
+      ],
+      "op": "PUSH1",
+      "path": "19",
+      "value": "0x40"
+    },
+    "4": {
+      "fn": null,
+      "offset": [
+        176,
+        285
+      ],
+      "op": "MSTORE",
+      "path": "19"
+    },
+    "5": {
+      "fn": null,
+      "offset": [
+        176,
+        285
+      ],
+      "op": "PUSH1",
+      "path": "19",
+      "value": "0x0"
+    },
+    "7": {
+      "fn": null,
+      "offset": [
+        176,
+        285
+      ],
+      "op": "DUP1",
+      "path": "19"
+    },
+    "8": {
+      "fn": null,
+      "offset": [
+        176,
+        285
+      ],
+      "op": "REVERT",
+      "path": "19"
+    }
+  },
+  "sha1": "843ccc5701ee4d3ed5ec0c3d9580747d661ec376",
+  "source": "// SPDX-License-Identifier: MIT\n// Beef Contracts v0.0.0 hello@mcdu.com\n\npragma solidity ^0.8.0;\n\nimport \"../../interfaces/IWallet.sol\";\nimport \"../../interfaces/IBank.sol\";\n\n\ncontract CentralBank \n{\n    address[] private _holders;\n    mapping(address => IWallet) private _wallets; \n\n}\n",
+  "sourceMap": "176:109:19:-:0;;;;;;;;;;;;;;;;;;;",
+  "sourcePath": "contracts/Bank/CentralBank.sol",
+  "type": "contract"
+}

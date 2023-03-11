@@ -1,0 +1,177 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "bytes4",
+          "name": "interfaceId",
+          "type": "bytes4"
+        }
+      ],
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "ast": {
+    "absolutePath": "interfaces/IContractWithId.sol",
+    "exportedSymbols": {
+      "IContractWithId": [
+        229
+      ],
+      "IERC165": [
+        669
+      ],
+      "SContractWithId": [
+        226
+      ]
+    },
+    "id": 230,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 220,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "85:23:7"
+      },
+      {
+        "absolutePath": "/Users/benjamin/.brownie/packages/OpenZeppelin/openzeppelin-contracts@4.3.2/contracts/utils/introspection/IERC165.sol",
+        "file": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
+        "id": 221,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 230,
+        "sourceUnit": 670,
+        "src": "109:65:7",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "canonicalName": "SContractWithId",
+        "id": 226,
+        "members": [
+          {
+            "constant": false,
+            "id": 223,
+            "mutability": "mutable",
+            "name": "contractAddr",
+            "nameLocation": "213:12:7",
+            "nodeType": "VariableDeclaration",
+            "scope": 226,
+            "src": "205:20:7",
+            "stateVariable": false,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 222,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "205:7:7",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 225,
+            "mutability": "mutable",
+            "name": "contractId",
+            "nameLocation": "239:10:7",
+            "nodeType": "VariableDeclaration",
+            "scope": 226,
+            "src": "231:18:7",
+            "stateVariable": false,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 224,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "231:7:7",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "visibility": "internal"
+          }
+        ],
+        "name": "SContractWithId",
+        "nameLocation": "183:15:7",
+        "nodeType": "StructDefinition",
+        "scope": 230,
+        "src": "176:76:7",
+        "visibility": "public"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 227,
+              "name": "IERC165",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 669,
+              "src": "282:7:7"
+            },
+            "id": 228,
+            "nodeType": "InheritanceSpecifier",
+            "src": "282:7:7"
+          }
+        ],
+        "canonicalName": "IContractWithId",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 229,
+        "linearizedBaseContracts": [
+          229,
+          669
+        ],
+        "name": "IContractWithId",
+        "nameLocation": "263:15:7",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 230,
+        "src": "253:41:7",
+        "usedErrors": []
+      }
+    ],
+    "src": "85:209:7"
+  },
+  "contractName": "IContractWithId",
+  "dependencies": [
+    "OpenZeppelin/openzeppelin-contracts@4.3.2/IERC165"
+  ],
+  "offset": [
+    253,
+    294
+  ],
+  "sha1": "1b923fd6a29842e16d56bcdfee33b0890aafd2ad",
+  "source": "// SPDX-License-Identifier: MIT\n// Beef MarketPlace Contracts v0.0.0 hello@mcdu.com\n\npragma solidity ^0.8.0;\nimport \"@openzeppelin/contracts/utils/introspection/IERC165.sol\";\n\nstruct SContractWithId\n{\n    address contractAddr;\n    uint256 contractId;\n}\ninterface IContractWithId is IERC165 {\n\n}",
+  "type": "interface"
+}

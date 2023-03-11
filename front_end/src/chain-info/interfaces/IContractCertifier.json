@@ -1,0 +1,355 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "contract IContractCertified",
+          "name": "contractAddr_",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "contractId_",
+          "type": "uint256"
+        }
+      ],
+      "name": "certify",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes4",
+          "name": "interfaceId",
+          "type": "bytes4"
+        }
+      ],
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "ast": {
+    "absolutePath": "interfaces/IContractCertified.sol",
+    "exportedSymbols": {
+      "IContractCertified": [
+        218
+      ],
+      "IContractCertifier": [
+        209
+      ],
+      "IContractWithId": [
+        229
+      ],
+      "IERC165": [
+        669
+      ],
+      "SContractWithId": [
+        226
+      ]
+    },
+    "id": 219,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 195,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "85:23:6"
+      },
+      {
+        "absolutePath": "interfaces/IContractWithId.sol",
+        "file": "./IContractWithId.sol",
+        "id": 196,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 219,
+        "sourceUnit": 230,
+        "src": "109:31:6",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 197,
+              "name": "IERC165",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 669,
+              "src": "175:7:6"
+            },
+            "id": 198,
+            "nodeType": "InheritanceSpecifier",
+            "src": "175:7:6"
+          }
+        ],
+        "canonicalName": "IContractCertifier",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 209,
+        "linearizedBaseContracts": [
+          209,
+          669
+        ],
+        "name": "IContractCertifier",
+        "nameLocation": "153:18:6",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "ad0fc0cc",
+            "id": 208,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "certify",
+            "nameLocation": "198:7:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 204,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 201,
+                  "mutability": "mutable",
+                  "name": "contractAddr_",
+                  "nameLocation": "234:13:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 208,
+                  "src": "215:32:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IContractCertified_$218",
+                    "typeString": "contract IContractCertified"
+                  },
+                  "typeName": {
+                    "id": 200,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 199,
+                      "name": "IContractCertified",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 218,
+                      "src": "215:18:6"
+                    },
+                    "referencedDeclaration": 218,
+                    "src": "215:18:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IContractCertified_$218",
+                      "typeString": "contract IContractCertified"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 203,
+                  "mutability": "mutable",
+                  "name": "contractId_",
+                  "nameLocation": "265:11:6",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 208,
+                  "src": "257:19:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 202,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "257:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "205:77:6"
+            },
+            "returnParameters": {
+              "id": 207,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 206,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 208,
+                  "src": "330:4:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 205,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "330:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "329:6:6"
+            },
+            "scope": 209,
+            "src": "189:147:6",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 219,
+        "src": "143:195:6",
+        "usedErrors": []
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 210,
+              "name": "IERC165",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 669,
+              "src": "372:7:6"
+            },
+            "id": 211,
+            "nodeType": "InheritanceSpecifier",
+            "src": "372:7:6"
+          }
+        ],
+        "canonicalName": "IContractCertified",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 218,
+        "linearizedBaseContracts": [
+          218,
+          669
+        ],
+        "name": "IContractCertified",
+        "nameLocation": "350:18:6",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "373a7fb4",
+            "id": 217,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getCertifier",
+            "nameLocation": "395:12:6",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 212,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "407:2:6"
+            },
+            "returnParameters": {
+              "id": 216,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 215,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 217,
+                  "src": "433:18:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IContractCertifier_$209",
+                    "typeString": "contract IContractCertifier"
+                  },
+                  "typeName": {
+                    "id": 214,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 213,
+                      "name": "IContractCertifier",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 209,
+                      "src": "433:18:6"
+                    },
+                    "referencedDeclaration": 209,
+                    "src": "433:18:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IContractCertifier_$209",
+                      "typeString": "contract IContractCertifier"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "432:20:6"
+            },
+            "scope": 218,
+            "src": "386:67:6",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 219,
+        "src": "340:115:6",
+        "usedErrors": []
+      }
+    ],
+    "src": "85:371:6"
+  },
+  "contractName": "IContractCertifier",
+  "dependencies": [
+    "IContractCertified",
+    "OpenZeppelin/openzeppelin-contracts@4.3.2/IERC165"
+  ],
+  "offset": [
+    143,
+    338
+  ],
+  "sha1": "ce51b9b1d47782428a2f707744f1317c7acb0980",
+  "source": "// SPDX-License-Identifier: MIT\n// Beef MarketPlace Contracts v0.0.0 hello@mcdu.com\n\npragma solidity ^0.8.0;\nimport \"./IContractWithId.sol\";\n\n\ninterface IContractCertifier is IERC165 {\n    function certify(\n        IContractCertified contractAddr_,\n        uint256 contractId_\n    )\n        external\n        view\n        returns (bool);\n}\n\ninterface IContractCertified is IERC165 {\n    function getCertifier() external view returns (IContractCertifier);\n}\n",
+  "type": "interface"
+}

@@ -1,0 +1,549 @@
+{
+  "abi": [],
+  "allSourcePaths": {
+    "32": "contracts/Market/Storage.sol"
+  },
+  "ast": {
+    "absolutePath": "contracts/Market/Storage.sol",
+    "exportedSymbols": {
+      "Bankeable": [
+        22037
+      ],
+      "IBankeable": [
+        22469
+      ],
+      "IContractWithId": [
+        25417
+      ],
+      "IERC165": [
+        22386
+      ],
+      "IERC20": [
+        22374
+      ],
+      "IPackedToken": [
+        25674
+      ],
+      "ITokenCertified": [
+        25713
+      ],
+      "ITokenCertifier": [
+        25697
+      ],
+      "ITokenEquivalent": [
+        25766
+      ],
+      "ITokenEquivalentCertifier": [
+        25750
+      ],
+      "ITokenWithId": [
+        25772
+      ],
+      "ITradeable": [
+        22454
+      ],
+      "MarketStorage": [
+        11675
+      ],
+      "Order": [
+        6056
+      ],
+      "SContractWithId": [
+        25414
+      ],
+      "SPackedTokenAsset": [
+        25632
+      ],
+      "STokenEquivalent": [
+        25726
+      ],
+      "Token": [
+        21512
+      ],
+      "Tradeable": [
+        21999
+      ]
+    },
+    "id": 11676,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 11643,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "85:23:32"
+      },
+      {
+        "absolutePath": "contracts/Market/Order/Lib.sol",
+        "file": "./Order/Lib.sol",
+        "id": 11644,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 11676,
+        "sourceUnit": 6057,
+        "src": "110:25:32",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "MarketStorage",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 11675,
+        "linearizedBaseContracts": [
+          11675
+        ],
+        "name": "MarketStorage",
+        "nameLocation": "146:13:32",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 11646,
+            "mutability": "mutable",
+            "name": "_orderidptr",
+            "nameLocation": "183:11:32",
+            "nodeType": "VariableDeclaration",
+            "scope": 11675,
+            "src": "166:28:32",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 11645,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "166:7:32",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 11649,
+            "mutability": "mutable",
+            "name": "_orderids",
+            "nameLocation": "219:9:32",
+            "nodeType": "VariableDeclaration",
+            "scope": 11675,
+            "src": "200:28:32",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_uint256_$dyn_storage",
+              "typeString": "uint256[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 11647,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "200:7:32",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "id": 11648,
+              "nodeType": "ArrayTypeName",
+              "src": "200:9:32",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                "typeString": "uint256[]"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 11654,
+            "mutability": "mutable",
+            "name": "_orders",
+            "nameLocation": "274:7:32",
+            "nodeType": "VariableDeclaration",
+            "scope": 11675,
+            "src": "234:47:32",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Info_$5950_storage_$",
+              "typeString": "mapping(uint256 => struct Order.Info)"
+            },
+            "typeName": {
+              "id": 11653,
+              "keyType": {
+                "id": 11650,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "242:7:32",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "234:30:32",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Info_$5950_storage_$",
+                "typeString": "mapping(uint256 => struct Order.Info)"
+              },
+              "valueType": {
+                "id": 11652,
+                "nodeType": "UserDefinedTypeName",
+                "pathNode": {
+                  "id": 11651,
+                  "name": "Order.Info",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 5950,
+                  "src": "253:10:32"
+                },
+                "referencedDeclaration": 5950,
+                "src": "253:10:32",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Info_$5950_storage_ptr",
+                  "typeString": "struct Order.Info"
+                }
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 11659,
+            "mutability": "mutable",
+            "name": "_fromtoorders",
+            "nameLocation": "326:13:32",
+            "nodeType": "VariableDeclaration",
+            "scope": 11675,
+            "src": "287:52:32",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_bytes32_$_t_array$_t_uint256_$dyn_storage_$",
+              "typeString": "mapping(bytes32 => uint256[])"
+            },
+            "typeName": {
+              "id": 11658,
+              "keyType": {
+                "id": 11655,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "295:7:32",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "287:29:32",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_bytes32_$_t_array$_t_uint256_$dyn_storage_$",
+                "typeString": "mapping(bytes32 => uint256[])"
+              },
+              "valueType": {
+                "baseType": {
+                  "id": 11656,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "306:7:32",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "id": 11657,
+                "nodeType": "ArrayTypeName",
+                "src": "306:9:32",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                  "typeString": "uint256[]"
+                }
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 11664,
+            "mutability": "mutable",
+            "name": "_fromorders",
+            "nameLocation": "384:11:32",
+            "nodeType": "VariableDeclaration",
+            "scope": 11675,
+            "src": "345:50:32",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_bytes32_$_t_array$_t_uint256_$dyn_storage_$",
+              "typeString": "mapping(bytes32 => uint256[])"
+            },
+            "typeName": {
+              "id": 11663,
+              "keyType": {
+                "id": 11660,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "353:7:32",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "345:29:32",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_bytes32_$_t_array$_t_uint256_$dyn_storage_$",
+                "typeString": "mapping(bytes32 => uint256[])"
+              },
+              "valueType": {
+                "baseType": {
+                  "id": 11661,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "364:7:32",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "id": 11662,
+                "nodeType": "ArrayTypeName",
+                "src": "364:9:32",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                  "typeString": "uint256[]"
+                }
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 11669,
+            "mutability": "mutable",
+            "name": "_toorders",
+            "nameLocation": "440:9:32",
+            "nodeType": "VariableDeclaration",
+            "scope": 11675,
+            "src": "401:48:32",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_bytes32_$_t_array$_t_uint256_$dyn_storage_$",
+              "typeString": "mapping(bytes32 => uint256[])"
+            },
+            "typeName": {
+              "id": 11668,
+              "keyType": {
+                "id": 11665,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "409:7:32",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "401:29:32",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_bytes32_$_t_array$_t_uint256_$dyn_storage_$",
+                "typeString": "mapping(bytes32 => uint256[])"
+              },
+              "valueType": {
+                "baseType": {
+                  "id": 11666,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "420:7:32",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "id": 11667,
+                "nodeType": "ArrayTypeName",
+                "src": "420:9:32",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                  "typeString": "uint256[]"
+                }
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 11674,
+            "mutability": "mutable",
+            "name": "_pastorders",
+            "nameLocation": "499:11:32",
+            "nodeType": "VariableDeclaration",
+            "scope": 11675,
+            "src": "460:50:32",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_uint256_$dyn_storage_$",
+              "typeString": "mapping(uint256 => uint256[])"
+            },
+            "typeName": {
+              "id": 11673,
+              "keyType": {
+                "id": 11670,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "468:7:32",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "460:29:32",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_uint256_$dyn_storage_$",
+                "typeString": "mapping(uint256 => uint256[])"
+              },
+              "valueType": {
+                "baseType": {
+                  "id": 11671,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "479:7:32",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "id": 11672,
+                "nodeType": "ArrayTypeName",
+                "src": "479:9:32",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                  "typeString": "uint256[]"
+                }
+              }
+            },
+            "visibility": "internal"
+          }
+        ],
+        "scope": 11676,
+        "src": "137:376:32",
+        "usedErrors": []
+      }
+    ],
+    "src": "85:429:32"
+  },
+  "bytecode": "6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220abf328f630302fe1f7df1989706b1a4a7bccf874454a7123e251dad6748144f964736f6c634300080d0033",
+  "bytecodeSha1": "73df0a6f5d0123eb2b2db0faf62b602aa77c123a",
+  "compiler": {
+    "evm_version": "istanbul",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "version": "0.8.13+commit.abaa5c0e"
+  },
+  "contractName": "MarketStorage",
+  "coverageMap": {
+    "branches": {
+      "32": {}
+    },
+    "statements": {
+      "32": {}
+    }
+  },
+  "dependencies": [],
+  "deployedBytecode": "6080604052600080fdfea2646970667358221220abf328f630302fe1f7df1989706b1a4a7bccf874454a7123e251dad6748144f964736f6c634300080d0033",
+  "deployedSourceMap": "137:376:32:-:0;;;;;",
+  "language": "Solidity",
+  "natspec": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "offset": [
+    137,
+    513
+  ],
+  "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xAB RETURN 0x28 0xF6 ADDRESS ADDRESS 0x2F 0xE1 0xF7 0xDF NOT DUP10 PUSH17 0x6B1A4A7BCCF874454A7123E251DAD67481 DIFFICULTY 0xF9 PUSH5 0x736F6C6343 STOP ADDMOD 0xD STOP CALLER ",
+  "pcMap": {
+    "0": {
+      "offset": [
+        137,
+        513
+      ],
+      "op": "PUSH1",
+      "path": "32",
+      "value": "0x80"
+    },
+    "2": {
+      "fn": null,
+      "offset": [
+        137,
+        513
+      ],
+      "op": "PUSH1",
+      "path": "32",
+      "value": "0x40"
+    },
+    "4": {
+      "fn": null,
+      "offset": [
+        137,
+        513
+      ],
+      "op": "MSTORE",
+      "path": "32"
+    },
+    "5": {
+      "fn": null,
+      "offset": [
+        137,
+        513
+      ],
+      "op": "PUSH1",
+      "path": "32",
+      "value": "0x0"
+    },
+    "7": {
+      "fn": null,
+      "offset": [
+        137,
+        513
+      ],
+      "op": "DUP1",
+      "path": "32"
+    },
+    "8": {
+      "fn": null,
+      "offset": [
+        137,
+        513
+      ],
+      "op": "REVERT",
+      "path": "32"
+    }
+  },
+  "sha1": "330e770c06a6dbe25fc7b6d253f3d21a3aa29ed4",
+  "source": "// SPDX-License-Identifier: MIT\n// Beef MarketPlace Contracts v0.0.0 hello@mcdu.com\n\npragma solidity ^0.8.0;\n\nimport \"./Order/Lib.sol\";\n\ncontract MarketStorage {\n    uint256 internal _orderidptr;\n    uint256[] internal _orderids;\n    mapping(uint256 => Order.Info) internal _orders;\n    mapping(bytes32 => uint256[]) internal _fromtoorders;\n    mapping(bytes32 => uint256[]) internal _fromorders;\n    mapping(bytes32 => uint256[]) internal _toorders;\n    \n    mapping(uint256 => uint256[]) internal _pastorders;\n}\n",
+  "sourceMap": "137:376:32:-:0;;;;;;;;;;;;;;;;;;;",
+  "sourcePath": "contracts/Market/Storage.sol",
+  "type": "contract"
+}

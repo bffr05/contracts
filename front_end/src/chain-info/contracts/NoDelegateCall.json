@@ -1,0 +1,490 @@
+{
+  "abi": [],
+  "allSourcePaths": {
+    "47": "contracts/agnostic/NoDelegateCall.sol"
+  },
+  "ast": {
+    "absolutePath": "contracts/agnostic/NoDelegateCall.sol",
+    "exportedSymbols": {
+      "NoDelegateCall": [
+        19398
+      ]
+    },
+    "id": 19399,
+    "license": "BUSL-1.1",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 19360,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:23:47"
+      },
+      {
+        "abstract": true,
+        "baseContracts": [],
+        "canonicalName": "NoDelegateCall",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": {
+          "id": 19361,
+          "nodeType": "StructuredDocumentation",
+          "src": "62:157:47",
+          "text": "@title Prevents delegatecall to a contract\n @notice Base contract that provides a modifier for preventing delegatecall to methods in a child contract"
+        },
+        "fullyImplemented": true,
+        "id": 19398,
+        "linearizedBaseContracts": [
+          19398
+        ],
+        "name": "NoDelegateCall",
+        "nameLocation": "237:14:47",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "documentation": {
+              "id": 19362,
+              "nodeType": "StructuredDocumentation",
+              "src": "258:46:47",
+              "text": "@dev The original address of this contract"
+            },
+            "id": 19364,
+            "mutability": "immutable",
+            "name": "original",
+            "nameLocation": "335:8:47",
+            "nodeType": "VariableDeclaration",
+            "scope": 19398,
+            "src": "309:34:47",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 19363,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "309:7:47",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "private"
+          },
+          {
+            "body": {
+              "id": 19374,
+              "nodeType": "Block",
+              "src": "364:239:47",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 19372,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 19367,
+                      "name": "original",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 19364,
+                      "src": "572:8:47",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "arguments": [
+                        {
+                          "id": 19370,
+                          "name": "this",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": -28,
+                          "src": "591:4:47",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_contract$_NoDelegateCall_$19398",
+                            "typeString": "contract NoDelegateCall"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_contract$_NoDelegateCall_$19398",
+                            "typeString": "contract NoDelegateCall"
+                          }
+                        ],
+                        "id": 19369,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "nodeType": "ElementaryTypeNameExpression",
+                        "src": "583:7:47",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_address_$",
+                          "typeString": "type(address)"
+                        },
+                        "typeName": {
+                          "id": 19368,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "583:7:47",
+                          "typeDescriptions": {}
+                        }
+                      },
+                      "id": 19371,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "583:13:47",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "572:24:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 19373,
+                  "nodeType": "ExpressionStatement",
+                  "src": "572:24:47"
+                }
+              ]
+            },
+            "id": 19375,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 19365,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "361:2:47"
+            },
+            "returnParameters": {
+              "id": 19366,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "364:0:47"
+            },
+            "scope": 19398,
+            "src": "350:253:47",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 19388,
+              "nodeType": "Block",
+              "src": "880:51:47",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 19385,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "arguments": [
+                            {
+                              "id": 19382,
+                              "name": "this",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": -28,
+                              "src": "906:4:47",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_contract$_NoDelegateCall_$19398",
+                                "typeString": "contract NoDelegateCall"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_contract$_NoDelegateCall_$19398",
+                                "typeString": "contract NoDelegateCall"
+                              }
+                            ],
+                            "id": 19381,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "nodeType": "ElementaryTypeNameExpression",
+                            "src": "898:7:47",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_address_$",
+                              "typeString": "type(address)"
+                            },
+                            "typeName": {
+                              "id": 19380,
+                              "name": "address",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "898:7:47",
+                              "typeDescriptions": {}
+                            }
+                          },
+                          "id": 19383,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "typeConversion",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "898:13:47",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "id": 19384,
+                          "name": "original",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 19364,
+                          "src": "915:8:47",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "898:25:47",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 19379,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "890:7:47",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 19386,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "890:34:47",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 19387,
+                  "nodeType": "ExpressionStatement",
+                  "src": "890:34:47"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 19376,
+              "nodeType": "StructuredDocumentation",
+              "src": "609:221:47",
+              "text": "@dev Private method is used instead of inlining into modifier because modifiers are copied into each method,\n     and the use of immutable means the address bytes are copied in every place the modifier is used."
+            },
+            "id": 19389,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "checkNotDelegateCall",
+            "nameLocation": "844:20:47",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 19377,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "864:2:47"
+            },
+            "returnParameters": {
+              "id": 19378,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "880:0:47"
+            },
+            "scope": 19398,
+            "src": "835:96:47",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "private"
+          },
+          {
+            "body": {
+              "id": 19396,
+              "nodeType": "Block",
+              "src": "1026:50:47",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "id": 19392,
+                      "name": "checkNotDelegateCall",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 19389,
+                      "src": "1036:20:47",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_view$__$returns$__$",
+                        "typeString": "function () view"
+                      }
+                    },
+                    "id": 19393,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1036:22:47",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 19394,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1036:22:47"
+                },
+                {
+                  "id": 19395,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "1068:1:47"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 19390,
+              "nodeType": "StructuredDocumentation",
+              "src": "937:58:47",
+              "text": "@notice Prevents delegatecall into the modified method"
+            },
+            "id": 19397,
+            "name": "noDelegateCall",
+            "nameLocation": "1009:14:47",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 19391,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1023:2:47"
+            },
+            "src": "1000:76:47",
+            "virtual": false,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 19399,
+        "src": "219:859:47",
+        "usedErrors": []
+      }
+    ],
+    "src": "37:1041:47"
+  },
+  "bytecode": "",
+  "bytecodeSha1": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+  "compiler": {
+    "evm_version": "istanbul",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "version": "0.8.13+commit.abaa5c0e"
+  },
+  "contractName": "NoDelegateCall",
+  "coverageMap": {
+    "branches": {},
+    "statements": {}
+  },
+  "dependencies": [],
+  "deployedBytecode": "",
+  "deployedSourceMap": "",
+  "language": "Solidity",
+  "natspec": {
+    "kind": "dev",
+    "methods": {},
+    "notice": "Base contract that provides a modifier for preventing delegatecall to methods in a child contract",
+    "stateVariables": {
+      "original": {
+        "details": "The original address of this contract"
+      }
+    },
+    "title": "Prevents delegatecall to a contract",
+    "version": 1
+  },
+  "offset": [
+    219,
+    1078
+  ],
+  "opcodes": "",
+  "pcMap": {},
+  "sha1": "6f0a351f041380783052d1a0b318c1bd29aafdef",
+  "source": "// SPDX-License-Identifier: BUSL-1.1\npragma solidity ^0.8.0;\n\n/// @title Prevents delegatecall to a contract\n/// @notice Base contract that provides a modifier for preventing delegatecall to methods in a child contract\nabstract contract NoDelegateCall {\n    /// @dev The original address of this contract\n    address private immutable original;\n\n    constructor() {\n        // Immutables are computed in the init code of the contract, and then inlined into the deployed bytecode.\n        // In other words, this variable won't change when it's checked at runtime.\n        original = address(this);\n    }\n\n    /// @dev Private method is used instead of inlining into modifier because modifiers are copied into each method,\n    ///     and the use of immutable means the address bytes are copied in every place the modifier is used.\n    function checkNotDelegateCall() private view {\n        require(address(this) == original);\n    }\n\n    /// @notice Prevents delegatecall into the modified method\n    modifier noDelegateCall() {\n        checkNotDelegateCall();\n        _;\n    }\n}",
+  "sourceMap": "",
+  "sourcePath": "contracts/agnostic/NoDelegateCall.sol",
+  "type": "contract"
+}

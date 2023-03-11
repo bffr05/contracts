@@ -22,6 +22,12 @@
     "typechain": "^8.1.0"
   },
   "dependencies": {
-    "@openzeppelin/contracts": "^4.8.1"
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.11.12",
+    "@openzeppelin/contracts": "^4.8.1",
+    "create-next-app": "^13.2.3",
+    "create-react-app": "^5.0.1",
+    "mui": "^0.0.1"
   }
 }

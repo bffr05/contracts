@@ -1,0 +1,1986 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "bool",
+          "name": "bankeable_",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "bankeable",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes4",
+          "name": "interfaceId",
+          "type": "bytes4"
+        }
+      ],
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "allSourcePaths": {
+    "17": "contracts/agnostic/Token/TradeableAndBankable.sol",
+    "2": "/Users/benjamin/.brownie/packages/OpenZeppelin/openzeppelin-contracts@4.3.2/contracts/utils/introspection/IERC165.sol",
+    "26": "interfaces/ITradeableAndIBankable.sol"
+  },
+  "ast": {
+    "absolutePath": "contracts/agnostic/Token/TradeableAndBankable.sol",
+    "exportedSymbols": {
+      "Bankeable": [
+        6816
+      ],
+      "IBankeable": [
+        7055
+      ],
+      "IERC165": [
+        1706
+      ],
+      "ITradeable": [
+        7040
+      ],
+      "Tradeable": [
+        6778
+      ]
+    },
+    "id": 6817,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 6723,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "85:23:17"
+      },
+      {
+        "absolutePath": "interfaces/ITradeableAndIBankable.sol",
+        "file": "../../../interfaces/ITradeableAndIBankable.sol",
+        "id": 6724,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 6817,
+        "sourceUnit": 7056,
+        "src": "109:56:17",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 6725,
+              "name": "ITradeable",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 7040,
+              "src": "189:10:17"
+            },
+            "id": 6726,
+            "nodeType": "InheritanceSpecifier",
+            "src": "189:10:17"
+          }
+        ],
+        "canonicalName": "Tradeable",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 6778,
+        "linearizedBaseContracts": [
+          6778,
+          7040,
+          1706
+        ],
+        "name": "Tradeable",
+        "nameLocation": "176:9:17",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 6728,
+            "mutability": "immutable",
+            "name": "_tradeable",
+            "nameLocation": "221:10:17",
+            "nodeType": "VariableDeclaration",
+            "scope": 6778,
+            "src": "206:25:17",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bool",
+              "typeString": "bool"
+            },
+            "typeName": {
+              "id": 6727,
+              "name": "bool",
+              "nodeType": "ElementaryTypeName",
+              "src": "206:4:17",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 6730,
+            "mutability": "immutable",
+            "name": "_onlyWithCurrency",
+            "nameLocation": "252:17:17",
+            "nodeType": "VariableDeclaration",
+            "scope": 6778,
+            "src": "237:32:17",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bool",
+              "typeString": "bool"
+            },
+            "typeName": {
+              "id": 6729,
+              "name": "bool",
+              "nodeType": "ElementaryTypeName",
+              "src": "237:4:17",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "baseFunctions": [
+              7029
+            ],
+            "body": {
+              "id": 6744,
+              "nodeType": "Block",
+              "src": "380:67:17",
+              "statements": [
+                {
+                  "expression": {
+                    "commonType": {
+                      "typeIdentifier": "t_bytes4",
+                      "typeString": "bytes4"
+                    },
+                    "id": 6742,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "id": 6737,
+                      "name": "interfaceId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6732,
+                      "src": "397:11:17",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes4",
+                        "typeString": "bytes4"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "expression": {
+                        "arguments": [
+                          {
+                            "id": 6739,
+                            "name": "ITradeable",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 7040,
+                            "src": "417:10:17",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_contract$_ITradeable_$7040_$",
+                              "typeString": "type(contract ITradeable)"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_type$_t_contract$_ITradeable_$7040_$",
+                              "typeString": "type(contract ITradeable)"
+                            }
+                          ],
+                          "id": 6738,
+                          "name": "type",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": -27,
+                          "src": "412:4:17",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_metatype_pure$__$returns$__$",
+                            "typeString": "function () pure"
+                          }
+                        },
+                        "id": 6740,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "412:16:17",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_meta_type_t_contract$_ITradeable_$7040",
+                          "typeString": "type(contract ITradeable)"
+                        }
+                      },
+                      "id": 6741,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "interfaceId",
+                      "nodeType": "MemberAccess",
+                      "src": "412:28:17",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes4",
+                        "typeString": "bytes4"
+                      }
+                    },
+                    "src": "397:43:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 6736,
+                  "id": 6743,
+                  "nodeType": "Return",
+                  "src": "390:50:17"
+                }
+              ]
+            },
+            "functionSelector": "01ffc9a7",
+            "id": 6745,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "supportsInterface",
+            "nameLocation": "285:17:17",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6733,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6732,
+                  "mutability": "mutable",
+                  "name": "interfaceId",
+                  "nameLocation": "310:11:17",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6745,
+                  "src": "303:18:17",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
+                  },
+                  "typeName": {
+                    "id": 6731,
+                    "name": "bytes4",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "303:6:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes4",
+                      "typeString": "bytes4"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "302:20:17"
+            },
+            "returnParameters": {
+              "id": 6736,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6735,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6745,
+                  "src": "370:4:17",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 6734,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "370:4:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "369:6:17"
+            },
+            "scope": 6778,
+            "src": "276:171:17",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 6760,
+              "nodeType": "Block",
+              "src": "506:87:17",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 6754,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 6752,
+                      "name": "_tradeable",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6728,
+                      "src": "516:10:17",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 6753,
+                      "name": "tradeable_",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6747,
+                      "src": "529:10:17",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "src": "516:23:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 6755,
+                  "nodeType": "ExpressionStatement",
+                  "src": "516:23:17"
+                },
+                {
+                  "expression": {
+                    "id": 6758,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 6756,
+                      "name": "_onlyWithCurrency",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6730,
+                      "src": "549:17:17",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 6757,
+                      "name": "onlyWithCurrency_",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6749,
+                      "src": "569:17:17",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "src": "549:37:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 6759,
+                  "nodeType": "ExpressionStatement",
+                  "src": "549:37:17"
+                }
+              ]
+            },
+            "id": 6761,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6750,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6747,
+                  "mutability": "mutable",
+                  "name": "tradeable_",
+                  "nameLocation": "470:10:17",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6761,
+                  "src": "465:15:17",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 6746,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "465:4:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6749,
+                  "mutability": "mutable",
+                  "name": "onlyWithCurrency_",
+                  "nameLocation": "487:17:17",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6761,
+                  "src": "482:22:17",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 6748,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "482:4:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "464:41:17"
+            },
+            "returnParameters": {
+              "id": 6751,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "506:0:17"
+            },
+            "scope": 6778,
+            "src": "453:140:17",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "baseFunctions": [
+              7034
+            ],
+            "body": {
+              "id": 6768,
+              "nodeType": "Block",
+              "src": "649:34:17",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 6766,
+                    "name": "_tradeable",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 6728,
+                    "src": "666:10:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 6765,
+                  "id": 6767,
+                  "nodeType": "Return",
+                  "src": "659:17:17"
+                }
+              ]
+            },
+            "functionSelector": "f5ac9db6",
+            "id": 6769,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "tradeable",
+            "nameLocation": "608:9:17",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6762,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "617:2:17"
+            },
+            "returnParameters": {
+              "id": 6765,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6764,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6769,
+                  "src": "643:4:17",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 6763,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "643:4:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "642:6:17"
+            },
+            "scope": 6778,
+            "src": "599:84:17",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "baseFunctions": [
+              7039
+            ],
+            "body": {
+              "id": 6776,
+              "nodeType": "Block",
+              "src": "746:41:17",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 6774,
+                    "name": "_onlyWithCurrency",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 6730,
+                    "src": "763:17:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 6773,
+                  "id": 6775,
+                  "nodeType": "Return",
+                  "src": "756:24:17"
+                }
+              ]
+            },
+            "functionSelector": "0e499427",
+            "id": 6777,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "onlyWithCurrency",
+            "nameLocation": "698:16:17",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6770,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "714:2:17"
+            },
+            "returnParameters": {
+              "id": 6773,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6772,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6777,
+                  "src": "740:4:17",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 6771,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "740:4:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "739:6:17"
+            },
+            "scope": 6778,
+            "src": "689:98:17",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 6817,
+        "src": "167:622:17",
+        "usedErrors": []
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 6779,
+              "name": "IBankeable",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 7055,
+              "src": "813:10:17"
+            },
+            "id": 6780,
+            "nodeType": "InheritanceSpecifier",
+            "src": "813:10:17"
+          }
+        ],
+        "canonicalName": "Bankeable",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 6816,
+        "linearizedBaseContracts": [
+          6816,
+          7055,
+          1706
+        ],
+        "name": "Bankeable",
+        "nameLocation": "800:9:17",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "baseFunctions": [
+              7049
+            ],
+            "body": {
+              "id": 6794,
+              "nodeType": "Block",
+              "src": "934:67:17",
+              "statements": [
+                {
+                  "expression": {
+                    "commonType": {
+                      "typeIdentifier": "t_bytes4",
+                      "typeString": "bytes4"
+                    },
+                    "id": 6792,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "id": 6787,
+                      "name": "interfaceId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6782,
+                      "src": "951:11:17",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes4",
+                        "typeString": "bytes4"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "expression": {
+                        "arguments": [
+                          {
+                            "id": 6789,
+                            "name": "IBankeable",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 7055,
+                            "src": "971:10:17",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_contract$_IBankeable_$7055_$",
+                              "typeString": "type(contract IBankeable)"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_type$_t_contract$_IBankeable_$7055_$",
+                              "typeString": "type(contract IBankeable)"
+                            }
+                          ],
+                          "id": 6788,
+                          "name": "type",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": -27,
+                          "src": "966:4:17",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_metatype_pure$__$returns$__$",
+                            "typeString": "function () pure"
+                          }
+                        },
+                        "id": 6790,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "966:16:17",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_meta_type_t_contract$_IBankeable_$7055",
+                          "typeString": "type(contract IBankeable)"
+                        }
+                      },
+                      "id": 6791,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "interfaceId",
+                      "nodeType": "MemberAccess",
+                      "src": "966:28:17",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes4",
+                        "typeString": "bytes4"
+                      }
+                    },
+                    "src": "951:43:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 6786,
+                  "id": 6793,
+                  "nodeType": "Return",
+                  "src": "944:50:17"
+                }
+              ]
+            },
+            "functionSelector": "01ffc9a7",
+            "id": 6795,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "supportsInterface",
+            "nameLocation": "839:17:17",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6783,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6782,
+                  "mutability": "mutable",
+                  "name": "interfaceId",
+                  "nameLocation": "864:11:17",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6795,
+                  "src": "857:18:17",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
+                  },
+                  "typeName": {
+                    "id": 6781,
+                    "name": "bytes4",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "857:6:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes4",
+                      "typeString": "bytes4"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "856:20:17"
+            },
+            "returnParameters": {
+              "id": 6786,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6785,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6795,
+                  "src": "924:4:17",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 6784,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "924:4:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "923:6:17"
+            },
+            "scope": 6816,
+            "src": "830:171:17",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "constant": false,
+            "id": 6797,
+            "mutability": "immutable",
+            "name": "_bankeable",
+            "nameLocation": "1022:10:17",
+            "nodeType": "VariableDeclaration",
+            "scope": 6816,
+            "src": "1007:25:17",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bool",
+              "typeString": "bool"
+            },
+            "typeName": {
+              "id": 6796,
+              "name": "bool",
+              "nodeType": "ElementaryTypeName",
+              "src": "1007:4:17",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 6806,
+              "nodeType": "Block",
+              "src": "1068:40:17",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 6804,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 6802,
+                      "name": "_bankeable",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6797,
+                      "src": "1078:10:17",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 6803,
+                      "name": "bankeable_",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6799,
+                      "src": "1091:10:17",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "src": "1078:23:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 6805,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1078:23:17"
+                }
+              ]
+            },
+            "id": 6807,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6800,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6799,
+                  "mutability": "mutable",
+                  "name": "bankeable_",
+                  "nameLocation": "1056:10:17",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6807,
+                  "src": "1051:15:17",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 6798,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1051:4:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1050:17:17"
+            },
+            "returnParameters": {
+              "id": 6801,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1068:0:17"
+            },
+            "scope": 6816,
+            "src": "1039:69:17",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "baseFunctions": [
+              7054
+            ],
+            "body": {
+              "id": 6814,
+              "nodeType": "Block",
+              "src": "1164:34:17",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 6812,
+                    "name": "_bankeable",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 6797,
+                    "src": "1181:10:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 6811,
+                  "id": 6813,
+                  "nodeType": "Return",
+                  "src": "1174:17:17"
+                }
+              ]
+            },
+            "functionSelector": "a0bb9323",
+            "id": 6815,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "bankeable",
+            "nameLocation": "1123:9:17",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6808,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1132:2:17"
+            },
+            "returnParameters": {
+              "id": 6811,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6810,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6815,
+                  "src": "1158:4:17",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 6809,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1158:4:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1157:6:17"
+            },
+            "scope": 6816,
+            "src": "1114:84:17",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 6817,
+        "src": "791:409:17",
+        "usedErrors": []
+      }
+    ],
+    "src": "85:1116:17"
+  },
+  "bytecode": "60a060405234801561001057600080fd5b5060405161017038038061017083398101604081905261002f91610039565b1515608052610062565b60006020828403121561004b57600080fd5b8151801515811461005b57600080fd5b9392505050565b60805160f661007a6000396000606e015260f66000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c806301ffc9a7146037578063a0bb932314606c575b600080fd5b605860423660046091565b6001600160e01b03191663285116a160e21b1490565b604051901515815260200160405180910390f35b7f00000000000000000000000000000000000000000000000000000000000000006058565b60006020828403121560a257600080fd5b81356001600160e01b03198116811460b957600080fd5b939250505056fea26469706673582212205455fcd843e40ce65f228d2ccb35691d7af745875616fb1799dd338ab2b8a16164736f6c634300080d0033",
+  "bytecodeSha1": "bfc783bc0e85922ce29be6728c312a3e86a0b6b1",
+  "compiler": {
+    "evm_version": "istanbul",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "version": "0.8.13+commit.abaa5c0e"
+  },
+  "contractName": "Bankeable",
+  "coverageMap": {
+    "branches": {
+      "17": {},
+      "2": {},
+      "26": {}
+    },
+    "statements": {
+      "17": {
+        "Bankeable.bankeable": {
+          "1": [
+            1174,
+            1191
+          ]
+        },
+        "Bankeable.supportsInterface": {
+          "0": [
+            944,
+            994
+          ]
+        }
+      },
+      "2": {},
+      "26": {}
+    }
+  },
+  "dependencies": [
+    "IBankeable",
+    "OpenZeppelin/openzeppelin-contracts@4.3.2/IERC165"
+  ],
+  "deployedBytecode": "6080604052348015600f57600080fd5b506004361060325760003560e01c806301ffc9a7146037578063a0bb932314606c575b600080fd5b605860423660046091565b6001600160e01b03191663285116a160e21b1490565b604051901515815260200160405180910390f35b7f00000000000000000000000000000000000000000000000000000000000000006058565b60006020828403121560a257600080fd5b81356001600160e01b03198116811460b957600080fd5b939250505056fea26469706673582212205455fcd843e40ce65f228d2ccb35691d7af745875616fb1799dd338ab2b8a16164736f6c634300080d0033",
+  "deployedSourceMap": "791:409:17:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;830:171;;;;;;:::i;:::-;-1:-1:-1;;;;;;951:43:17;-1:-1:-1;;;951:43:17;;830:171;;;;470:14:27;;463:22;445:41;;433:2;418:18;830:171:17;;;;;;;1114:84;1181:10;1114:84;;14:286:27;72:6;125:2;113:9;104:7;100:23;96:32;93:52;;;141:1;138;131:12;93:52;167:23;;-1:-1:-1;;;;;;219:32:27;;209:43;;199:71;;266:1;263;256:12;199:71;289:5;14:286;-1:-1:-1;;;14:286:27:o",
+  "language": "Solidity",
+  "natspec": {
+    "kind": "dev",
+    "methods": {
+      "supportsInterface(bytes4)": {
+        "details": "Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section] to learn more about how these ids are created. This function call must use less than 30 000 gas."
+      }
+    },
+    "version": 1
+  },
+  "offset": [
+    791,
+    1200
+  ],
+  "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH1 0x32 JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x1FFC9A7 EQ PUSH1 0x37 JUMPI DUP1 PUSH4 0xA0BB9323 EQ PUSH1 0x6C JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x58 PUSH1 0x42 CALLDATASIZE PUSH1 0x4 PUSH1 0x91 JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xE0 SHL SUB NOT AND PUSH4 0x285116A1 PUSH1 0xE2 SHL EQ SWAP1 JUMP JUMPDEST PUSH1 0x40 MLOAD SWAP1 ISZERO ISZERO DUP2 MSTORE PUSH1 0x20 ADD PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH32 0x0 PUSH1 0x58 JUMP JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH1 0xA2 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP2 CALLDATALOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xE0 SHL SUB NOT DUP2 AND DUP2 EQ PUSH1 0xB9 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST SWAP4 SWAP3 POP POP POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 SLOAD SSTORE 0xFC 0xD8 NUMBER 0xE4 0xC 0xE6 0x5F 0x22 DUP14 0x2C 0xCB CALLDATALOAD PUSH10 0x1D7AF745875616FB1799 0xDD CALLER DUP11 0xB2 0xB8 LOG1 PUSH2 0x6473 PUSH16 0x6C634300080D00330000000000000000 ",
+  "pcMap": {
+    "0": {
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "PUSH1",
+      "path": "17",
+      "value": "0x80"
+    },
+    "2": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "PUSH1",
+      "path": "17",
+      "value": "0x40"
+    },
+    "4": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "MSTORE",
+      "path": "17"
+    },
+    "5": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "CALLVALUE",
+      "path": "17"
+    },
+    "6": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "DUP1",
+      "path": "17"
+    },
+    "7": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "ISZERO",
+      "path": "17"
+    },
+    "8": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "PUSH1",
+      "path": "17",
+      "value": "0xF"
+    },
+    "10": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "JUMPI",
+      "path": "17"
+    },
+    "11": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "PUSH1",
+      "path": "17",
+      "value": "0x0"
+    },
+    "13": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "DUP1",
+      "path": "17"
+    },
+    "14": {
+      "dev": "Cannot send ether to nonpayable function",
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "REVERT",
+      "path": "17"
+    },
+    "15": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "JUMPDEST",
+      "path": "17"
+    },
+    "16": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "POP",
+      "path": "17"
+    },
+    "17": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "PUSH1",
+      "path": "17",
+      "value": "0x4"
+    },
+    "19": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "CALLDATASIZE",
+      "path": "17"
+    },
+    "20": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "LT",
+      "path": "17"
+    },
+    "21": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "PUSH1",
+      "path": "17",
+      "value": "0x32"
+    },
+    "23": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "JUMPI",
+      "path": "17"
+    },
+    "24": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "PUSH1",
+      "path": "17",
+      "value": "0x0"
+    },
+    "26": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "CALLDATALOAD",
+      "path": "17"
+    },
+    "27": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "PUSH1",
+      "path": "17",
+      "value": "0xE0"
+    },
+    "29": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "SHR",
+      "path": "17"
+    },
+    "30": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "DUP1",
+      "path": "17"
+    },
+    "31": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "PUSH4",
+      "path": "17",
+      "value": "0x1FFC9A7"
+    },
+    "36": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "EQ",
+      "path": "17"
+    },
+    "37": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "PUSH1",
+      "path": "17",
+      "value": "0x37"
+    },
+    "39": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "JUMPI",
+      "path": "17"
+    },
+    "40": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "DUP1",
+      "path": "17"
+    },
+    "41": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "PUSH4",
+      "path": "17",
+      "value": "0xA0BB9323"
+    },
+    "46": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "EQ",
+      "path": "17"
+    },
+    "47": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "PUSH1",
+      "path": "17",
+      "value": "0x6C"
+    },
+    "49": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "JUMPI",
+      "path": "17"
+    },
+    "50": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "JUMPDEST",
+      "path": "17"
+    },
+    "51": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "PUSH1",
+      "path": "17",
+      "value": "0x0"
+    },
+    "53": {
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "DUP1",
+      "path": "17"
+    },
+    "54": {
+      "first_revert": true,
+      "fn": null,
+      "offset": [
+        791,
+        1200
+      ],
+      "op": "REVERT",
+      "path": "17"
+    },
+    "55": {
+      "fn": "Bankeable.supportsInterface",
+      "offset": [
+        830,
+        1001
+      ],
+      "op": "JUMPDEST",
+      "path": "17"
+    },
+    "56": {
+      "fn": "Bankeable.supportsInterface",
+      "offset": [
+        830,
+        1001
+      ],
+      "op": "PUSH1",
+      "path": "17",
+      "value": "0x58"
+    },
+    "58": {
+      "fn": "Bankeable.supportsInterface",
+      "offset": [
+        830,
+        1001
+      ],
+      "op": "PUSH1",
+      "path": "17",
+      "value": "0x42"
+    },
+    "60": {
+      "fn": "Bankeable.supportsInterface",
+      "offset": [
+        830,
+        1001
+      ],
+      "op": "CALLDATASIZE",
+      "path": "17"
+    },
+    "61": {
+      "fn": "Bankeable.supportsInterface",
+      "offset": [
+        830,
+        1001
+      ],
+      "op": "PUSH1",
+      "path": "17",
+      "value": "0x4"
+    },
+    "63": {
+      "fn": "Bankeable.supportsInterface",
+      "offset": [
+        830,
+        1001
+      ],
+      "op": "PUSH1",
+      "path": "17",
+      "value": "0x91"
+    },
+    "65": {
+      "fn": "Bankeable.supportsInterface",
+      "jump": "i",
+      "offset": [
+        830,
+        1001
+      ],
+      "op": "JUMP",
+      "path": "17"
+    },
+    "66": {
+      "fn": "Bankeable.supportsInterface",
+      "offset": [
+        830,
+        1001
+      ],
+      "op": "JUMPDEST",
+      "path": "17"
+    },
+    "67": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "69": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "71": {
+      "op": "PUSH1",
+      "value": "0xE0"
+    },
+    "73": {
+      "op": "SHL"
+    },
+    "74": {
+      "op": "SUB"
+    },
+    "75": {
+      "op": "NOT"
+    },
+    "76": {
+      "fn": "Bankeable.supportsInterface",
+      "offset": [
+        951,
+        994
+      ],
+      "op": "AND",
+      "path": "17",
+      "statement": 0
+    },
+    "77": {
+      "op": "PUSH4",
+      "value": "0x285116A1"
+    },
+    "82": {
+      "op": "PUSH1",
+      "value": "0xE2"
+    },
+    "84": {
+      "op": "SHL"
+    },
+    "85": {
+      "fn": "Bankeable.supportsInterface",
+      "offset": [
+        951,
+        994
+      ],
+      "op": "EQ",
+      "path": "17"
+    },
+    "86": {
+      "fn": "Bankeable.supportsInterface",
+      "offset": [
+        951,
+        994
+      ],
+      "op": "SWAP1",
+      "path": "17"
+    },
+    "87": {
+      "fn": "Bankeable.supportsInterface",
+      "offset": [
+        830,
+        1001
+      ],
+      "op": "JUMP",
+      "path": "17"
+    },
+    "88": {
+      "fn": "Bankeable.supportsInterface",
+      "offset": [
+        830,
+        1001
+      ],
+      "op": "JUMPDEST",
+      "path": "17"
+    },
+    "89": {
+      "fn": "Bankeable.supportsInterface",
+      "offset": [
+        830,
+        1001
+      ],
+      "op": "PUSH1",
+      "path": "17",
+      "value": "0x40"
+    },
+    "91": {
+      "fn": "Bankeable.supportsInterface",
+      "offset": [
+        830,
+        1001
+      ],
+      "op": "MLOAD",
+      "path": "17"
+    },
+    "92": {
+      "op": "SWAP1"
+    },
+    "93": {
+      "op": "ISZERO"
+    },
+    "94": {
+      "op": "ISZERO"
+    },
+    "95": {
+      "op": "DUP2"
+    },
+    "96": {
+      "op": "MSTORE"
+    },
+    "97": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "99": {
+      "op": "ADD"
+    },
+    "100": {
+      "fn": "Bankeable.supportsInterface",
+      "offset": [
+        830,
+        1001
+      ],
+      "op": "PUSH1",
+      "path": "17",
+      "value": "0x40"
+    },
+    "102": {
+      "fn": "Bankeable.supportsInterface",
+      "offset": [
+        830,
+        1001
+      ],
+      "op": "MLOAD",
+      "path": "17"
+    },
+    "103": {
+      "fn": "Bankeable.supportsInterface",
+      "offset": [
+        830,
+        1001
+      ],
+      "op": "DUP1",
+      "path": "17"
+    },
+    "104": {
+      "fn": "Bankeable.supportsInterface",
+      "offset": [
+        830,
+        1001
+      ],
+      "op": "SWAP2",
+      "path": "17"
+    },
+    "105": {
+      "fn": "Bankeable.supportsInterface",
+      "offset": [
+        830,
+        1001
+      ],
+      "op": "SUB",
+      "path": "17"
+    },
+    "106": {
+      "fn": "Bankeable.supportsInterface",
+      "offset": [
+        830,
+        1001
+      ],
+      "op": "SWAP1",
+      "path": "17"
+    },
+    "107": {
+      "fn": "Bankeable.supportsInterface",
+      "offset": [
+        830,
+        1001
+      ],
+      "op": "RETURN",
+      "path": "17"
+    },
+    "108": {
+      "fn": "Bankeable.bankeable",
+      "offset": [
+        1114,
+        1198
+      ],
+      "op": "JUMPDEST",
+      "path": "17"
+    },
+    "109": {
+      "fn": "Bankeable.bankeable",
+      "offset": [
+        1181,
+        1191
+      ],
+      "op": "PUSH32",
+      "path": "17",
+      "statement": 1,
+      "value": "0x0"
+    },
+    "142": {
+      "fn": "Bankeable.bankeable",
+      "offset": [
+        1114,
+        1198
+      ],
+      "op": "PUSH1",
+      "path": "17",
+      "value": "0x58"
+    },
+    "144": {
+      "fn": "Bankeable.bankeable",
+      "offset": [
+        1114,
+        1198
+      ],
+      "op": "JUMP",
+      "path": "17"
+    },
+    "145": {
+      "op": "JUMPDEST"
+    },
+    "146": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "148": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "150": {
+      "op": "DUP3"
+    },
+    "151": {
+      "op": "DUP5"
+    },
+    "152": {
+      "op": "SUB"
+    },
+    "153": {
+      "op": "SLT"
+    },
+    "154": {
+      "op": "ISZERO"
+    },
+    "155": {
+      "op": "PUSH1",
+      "value": "0xA2"
+    },
+    "157": {
+      "op": "JUMPI"
+    },
+    "158": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "160": {
+      "op": "DUP1"
+    },
+    "161": {
+      "op": "REVERT"
+    },
+    "162": {
+      "op": "JUMPDEST"
+    },
+    "163": {
+      "op": "DUP2"
+    },
+    "164": {
+      "op": "CALLDATALOAD"
+    },
+    "165": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "167": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "169": {
+      "op": "PUSH1",
+      "value": "0xE0"
+    },
+    "171": {
+      "op": "SHL"
+    },
+    "172": {
+      "op": "SUB"
+    },
+    "173": {
+      "op": "NOT"
+    },
+    "174": {
+      "op": "DUP2"
+    },
+    "175": {
+      "op": "AND"
+    },
+    "176": {
+      "op": "DUP2"
+    },
+    "177": {
+      "op": "EQ"
+    },
+    "178": {
+      "op": "PUSH1",
+      "value": "0xB9"
+    },
+    "180": {
+      "op": "JUMPI"
+    },
+    "181": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "183": {
+      "op": "DUP1"
+    },
+    "184": {
+      "op": "REVERT"
+    },
+    "185": {
+      "op": "JUMPDEST"
+    },
+    "186": {
+      "op": "SWAP4"
+    },
+    "187": {
+      "op": "SWAP3"
+    },
+    "188": {
+      "op": "POP"
+    },
+    "189": {
+      "op": "POP"
+    },
+    "190": {
+      "op": "POP"
+    },
+    "191": {
+      "jump": "o",
+      "op": "JUMP"
+    }
+  },
+  "sha1": "b4bcb5712ebb4b647d0072975977f993cbb4ff6d",
+  "source": "// SPDX-License-Identifier: MIT\n// Beef MarketPlace Contracts v0.0.0 hello@mcdu.com\n\npragma solidity ^0.8.0;\nimport \"../../../interfaces/ITradeableAndIBankable.sol\";\n\ncontract Tradeable is ITradeable {\n    bool immutable _tradeable;\n    bool immutable _onlyWithCurrency;\n\n    function supportsInterface(bytes4 interfaceId)\n        external\n        pure\n        returns (bool)\n    {\n        return interfaceId == type(ITradeable).interfaceId;\n    }\n\n    constructor(bool tradeable_, bool onlyWithCurrency_) {\n        _tradeable = tradeable_;\n        _onlyWithCurrency = onlyWithCurrency_;\n    }\n\n    function tradeable() external view returns (bool) {\n        return _tradeable;\n    }\n\n    function onlyWithCurrency() external view returns (bool) {\n        return _onlyWithCurrency;\n    }\n}\n\ncontract Bankeable is IBankeable {\n    function supportsInterface(bytes4 interfaceId)\n        external\n        pure\n        returns (bool)\n    {\n        return interfaceId == type(IBankeable).interfaceId;\n    }\n\n    bool immutable _bankeable;\n\n    constructor(bool bankeable_) {\n        _bankeable = bankeable_;\n    }\n\n    function bankeable() external view returns (bool) {\n        return _bankeable;\n    }\n}\n",
+  "sourceMap": "791:409:17:-:0;;;1039:69;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;1078:23;;;;791:409;;14:277:27;81:6;134:2;122:9;113:7;109:23;105:32;102:52;;;150:1;147;140:12;102:52;182:9;176:16;235:5;228:13;221:21;214:5;211:32;201:60;;257:1;254;247:12;201:60;280:5;14:277;-1:-1:-1;;;14:277:27:o;:::-;791:409:17;;;;;;;;;;;;",
+  "sourcePath": "contracts/agnostic/Token/TradeableAndBankable.sol",
+  "type": "contract"
+}
