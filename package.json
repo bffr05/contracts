@@ -17,6 +17,7 @@
     "chai": "^4.2.0",
     "ethers": "^5.4.7",
     "hardhat": "^2.12.7",
+    "hardhat-deploy": "^0.11.26",
     "hardhat-gas-reporter": "^1.0.8",
     "solidity-coverage": "^0.8.0",
     "typechain": "^8.1.0"
@@ -28,6 +29,7 @@
     "@openzeppelin/contracts": "^4.8.1",
     "create-next-app": "^13.2.3",
     "create-react-app": "^5.0.1",
+    "dotenv": "^16.0.3",
     "mui": "^0.0.1"
   }
 }
