@@ -63,7 +63,6 @@ EthAddress0 = EthAddress("0x0000000000000000000000000000000000000000")
 ## For Testing Purpose
 #################################################################################
 DEPLOYER_KEY="0xb0527ed7ff4c0eed996e913a96f4c3eb794f885a74e152131d8566d4ea05078a"
-DEPLOYER_PKEY="0xbefe15befe15befe15befe15befe15eb794f885a74e152131d8566d4ea05078a"
 DEPLOYER_PUBKEY="0x613a238E5330a09fd0b0bae84AB1447e9b9CEA39"
 
 SUPPLY_NEEDED = 0.1*10**18
